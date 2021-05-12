@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/add_majors.dart';
-import 'package:university_helper/add_university.dart';
+import 'package:university_helper/screens/add_majors.dart';
+import 'package:university_helper/screens/add_university.dart';
 import 'package:university_helper/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {

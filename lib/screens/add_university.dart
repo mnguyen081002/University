@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import 'custom_search.dart';
-import 'providers/dataMajorsProvider.dart';
+import '../custom_search.dart';
+import '../providers/dataMajorsProvider.dart';
 
 class AddUniversity extends StatefulWidget {
   const AddUniversity({Key? key}) : super(key: key);

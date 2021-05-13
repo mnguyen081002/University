@@ -25,6 +25,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        theme: ThemeData(
+          canvasColor: Colors.white,
+        ),
         home: MainScreen(),
       ),
     );

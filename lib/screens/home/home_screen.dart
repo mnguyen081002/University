@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/providers/dataUniversityProvider.dart';
+import 'package:university_helper/screens/home/components/tag_university.dart';
 import 'package:university_helper/widgets/search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -77,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen>
                             fit: BoxFit.cover,
                           ),
                         ),
-                        if (true) BuildTag(),
+                        TagUniversity(),
                       ]),
                       Expanded(
                         child: Padding(
@@ -116,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   ),
                                   SizedBox(width: 10),
                                   Text(
-                                    'Tốt (100 đánh giá)',
+                                    'Tốt (99 đánh giá)',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText1!
@@ -161,59 +162,6 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Positioned BuildTag() {
-    return Positioned(
-      top: 0,
-      left: 0,
-      child: Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Colors.orange,
-            Colors.red,
-          ]),
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(5),
-          ),
-        ),
-        height: 20,
-        width: 40,
-        child: Text(
-          'ĐHQG',
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   bool get wantKeepAlive => true;
 }
-// dataUniversity.listUniversity.isNotEmpty
-// ? ListView.builder(
-// padding: EdgeInsets.all(10),
-// shrinkWrap: true,
-// itemCount: dataUniversity.listUniversity.length,
-// itemBuilder: (context, index) {
-// return Card(
-// shape: RoundedRectangleBorder(
-// borderRadius: BorderRadius.circular(15)),
-// child: ClipRRect(
-// borderRadius: BorderRadius.circular(15),
-// child: Column(
-// children: [
-// Image.network(dataUniversity
-//     .listUniversity[index].imageUrl),
-// Text(dataUniversity
-//     .listUniversity[index].name),
-// ],
-// ),
-// ),
-// );
-// },
-// )
-// : Center(child: CircularProgressIndicator());

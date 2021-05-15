@@ -4,7 +4,7 @@ import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/providers/dataUniversityProvider.dart';
 import 'package:university_helper/screens/home/components/custom_card.dart';
-import 'package:university_helper/widgets/search_bar.dart';
+import 'package:university_helper/ultis/widgets/search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

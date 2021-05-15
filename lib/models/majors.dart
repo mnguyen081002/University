@@ -1,22 +1,4 @@
-const data = [
-  'Công nghệ thông tin',
-  'Khoa học máy tính',
-  'Công nghệ phần mềm',
-];
 
-// final university = UniversityInfo(
-//   name: _tenTruong,
-//   imageUrl: _linkAnh,
-//   formsOfTraining: _hinhThucDaoTao,
-//   idUniversity: _maTruong,
-//   isNationalUniversity: isNationalUniversity,
-//   listMajors: listMajors,
-//   location: _diaChi,
-//   maxTuition: _maxTuition,
-//   minTuition: _minTuition,
-//   universityType: _loaiTruong,
-//   universityUrl: _linkWeb,
-// );
 class Majors {
   final String idMajors;
   final String name;
@@ -29,7 +11,6 @@ class Majors {
     required this.studyTime,
   });
 }
-
 class IndustryGroups {
   String? name;
   List<Majors> _industryGroup;

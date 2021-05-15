@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/custom_search.dart';
 import 'package:university_helper/providers/dataMajorsProvider.dart';
+import 'package:university_helper/services/majors/custom_search_majors.dart';
 
 class SearchMajorsDelegate extends CustomSearchDelegate<String> {
   SearchMajorsDelegate({

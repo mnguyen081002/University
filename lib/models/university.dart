@@ -1,27 +1,6 @@
-import 'package:university_helper/data/majors_data.dart';
+import 'package:university_helper/models/majors.dart';
 
-enum UniversityType {
-  DaiHoc,
-  CaoDang,
-  Nghe,
-}
-enum UniversityForm {
-  CongLap,
-  TuThuc,
-}
-enum FormOfTraining {
-  ChinhQuy,
-  ThuongXuyen,
-  LienThong,
-}
-enum Area {
-  MienTrung,
-  MienBac,
-  MienNam,
-  MienTay,
-}
-
-class UniversityInfo {
+class University {
   final String imageUrl;
   final List<Majors> listMajors;
   final String formsOfTraining;
@@ -32,9 +11,11 @@ class UniversityInfo {
   final String location;
   final String universityType;
   final String universityUrl;
+  final String id;
   bool isNationalUniversity;
   double rate;
-  UniversityInfo({
+  University({
+    required this.id,
     required this.name,
     required this.imageUrl,
     this.rate = 10,

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:university_helper/data/majors_data.dart';
+import 'package:university_helper/models/majors.dart';
 
 class DataMajorsProvider extends ChangeNotifier {
   List<Majors> _listMajors = [];

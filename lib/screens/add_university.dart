@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/services/major/input_majors.dart';
+import 'package:university_helper/providers/dataMajorsProvider.dart';
+import 'package:university_helper/services/majors/input_majors.dart';
 
-import '../custom_search.dart';
-import '../providers/dataMajorsProvider.dart';
+import '../services/majors/custom_search_majors.dart';
 
 class AddUniversity extends StatefulWidget {
   const AddUniversity({Key? key}) : super(key: key);

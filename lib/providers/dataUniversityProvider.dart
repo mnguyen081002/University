@@ -1,16 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:university_helper/data/majors_data.dart';
-import 'package:university_helper/models/university_info.dart';
+import 'package:university_helper/models/majors.dart';
+import 'package:university_helper/models/university.dart';
 
 class DataUniversityProvider extends ChangeNotifier {
-  List<UniversityInfo> _listUniversity = [];
-  List<UniversityInfo> get listUniversity => _listUniversity;
-  DocumentSnapshot<Object?>? lastDocs;
+  List<University> _listUniversity = [];
+  List<University> get listUniversity => _listUniversity;
+  DocumentSnapshot<Object?>? _lastDocs;
+
+  University getById(String id) =>
+      _listUniversity.firstWhere((element) => element.id == id);
+
   Future fetchAndSetData() async {
-    List<UniversityInfo> listUniversity = [];
+    List<University> listUniversity = [];
     late final dataRef;
-    if (lastDocs == null) {
+    if (_lastDocs == null) {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
           .limit(1)
@@ -18,16 +22,17 @@ class DataUniversityProvider extends ChangeNotifier {
     } else {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
-          .startAfterDocument(lastDocs!)
+          .startAfterDocument(_lastDocs!)
           .limit(4)
           .get();
     }
-    lastDocs = dataRef.docs.last;
-
+    _lastDocs = dataRef.docs.last;
     final listDataUniversity = dataRef.docs;
     listDataUniversity.forEach((element) {
       final listDataMajors = element['listMajors'];
+
       List<Majors> listMajors = [];
+
       listDataMajors.forEach((majors) {
         listMajors.add(Majors(
           grade: majors['grade'] as List,
@@ -37,7 +42,7 @@ class DataUniversityProvider extends ChangeNotifier {
         ));
       });
       listUniversity.add(
-        UniversityInfo(
+        University(
           name: element['name'],
           imageUrl: element['imageUrl'],
           formsOfTraining: element['formsOfTraining'],
@@ -49,6 +54,7 @@ class DataUniversityProvider extends ChangeNotifier {
           universityType: element['universityType'],
           minTuition: element['minTuition'],
           universityUrl: element['universityUrl'],
+          id: element.id,
         ),
       );
     });

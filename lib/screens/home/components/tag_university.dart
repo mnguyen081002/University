@@ -18,26 +18,3 @@ class TagUniversity extends StatelessWidget {
     );
   }
 }
-// Container(
-// alignment: Alignment.center,
-// decoration: BoxDecoration(
-// gradient: LinearGradient(colors: [
-// Colors.green.shade200,
-// Colors.yellow.shade100,
-// Colors.red.shade200,
-// ]),
-// borderRadius: BorderRadius.only(
-// bottomRight: Radius.circular(5),
-// ),
-// ),
-// height: 20,
-// width: 40,
-// child: Text(
-// 'ĐHQG',
-// style: TextStyle(
-// fontSize: 12,
-// fontWeight: FontWeight.bold,
-// color: Colors.grey[600],
-// ),
-// ),
-// ),

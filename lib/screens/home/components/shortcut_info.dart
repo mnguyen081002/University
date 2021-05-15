@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:university_helper/models/university.dart';
 
-class InfoUniversity extends StatelessWidget {
-  const InfoUniversity({
+class ShortCutInfo extends StatelessWidget {
+  const ShortCutInfo({
     Key? key,
     required this.dataUniversity,
     required this.isSearchByMajors,
@@ -65,9 +65,16 @@ class InfoUniversity extends StatelessWidget {
                 ? Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Ngành: Công nghệ thông tin',
-                        style: Theme.of(context).textTheme.bodyText1,
+                      RichText(
+                        text: TextSpan(
+                            text: 'Ngành:',
+                            style: Theme.of(context).textTheme.bodyText2,
+                            children: [
+                              TextSpan(
+                                text: ' Công nghệ thông tin',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ]),
                       ),
                       Row(
                         children: [

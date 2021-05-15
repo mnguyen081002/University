@@ -39,7 +39,7 @@ class CustomCard extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  InfoUniversity(
+                  ShortCutInfo(
                     dataUniversity: dataUniversity,
                     isSearchByMajors: isSearchByMajors,
                   ),

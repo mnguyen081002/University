@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/services/input_majors.dart';
+import 'package:university_helper/services/major/input_majors.dart';
 
 import '../custom_search.dart';
 import '../providers/dataMajorsProvider.dart';
@@ -29,7 +29,6 @@ class _AddUniversityState extends State<AddUniversity> {
   late String _loaiTruong;
   bool isNationalUniversity = false;
 
-  List<String> _values = [];
   List<String> listDataMajors = [];
 
   Future<void> getData() async {
@@ -103,7 +102,7 @@ class _AddUniversityState extends State<AddUniversity> {
                   decoration: InputDecoration(labelText: 'Nhập mã trường'),
                   onSaved: (value) => _maTruong = value!,
                 ),
-                _Switch(),
+                _switch(),
                 SearchPage(
                     delegate: SearchMajorsDelegate(
                   itemList: listDataMajors,
@@ -154,7 +153,7 @@ class _AddUniversityState extends State<AddUniversity> {
     );
   }
 
-  Row _Switch() {
+  Row _switch() {
     return Row(
       children: [
         Text('Là đại học quốc gia ?'),
@@ -198,18 +197,3 @@ class _AddUniversityState extends State<AddUniversity> {
     });
   }
 }
-
-// Row(
-// children: [
-// DropdownButton(
-// value: _dsKhoiThi[0],
-// onChanged: (newVal) {},
-// items: _dsKhoiThi.map((khoiThi) {
-// return DropdownMenuItem<String>(
-// value: khoiThi,
-// child: Text(khoiThi),
-// );
-// }).toList(),
-// ),
-// ],
-// ),

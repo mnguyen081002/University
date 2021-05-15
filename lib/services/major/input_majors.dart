@@ -30,6 +30,7 @@ class SearchMajorsDelegate extends CustomSearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
+    print(scaffoldCtx);
     final suggestList = [
       ...itemList.where(
           (element) => element.toLowerCase().startsWith(query.toLowerCase()))
@@ -135,7 +136,7 @@ class SearchMajorsDelegate extends CustomSearchDelegate<String> {
                       )
                     ],
                   ),
-                  BuildTags(khoiDaChon),
+                  _buildTags(khoiDaChon),
                   TextFormField(
                     controller: studyTimeMajorsCtl,
                     decoration: InputDecoration(
@@ -158,7 +159,7 @@ class SearchMajorsDelegate extends CustomSearchDelegate<String> {
     );
   }
 
-  Container BuildTags(List<String> khoiDaChon) {
+  Container _buildTags(List<String> khoiDaChon) {
     return Container(
       constraints: BoxConstraints(maxHeight: 100),
       child: GridView.builder(

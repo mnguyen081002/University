@@ -19,7 +19,10 @@ class CustomCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(InfoScreen.routeName, arguments: dataUniversity.id);
+          Get.toNamed(
+            InfoScreen.routeName,
+            arguments: dataUniversity.universityUrl,
+          );
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),

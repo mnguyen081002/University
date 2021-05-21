@@ -57,8 +57,9 @@ class _HomeScreenState extends State<HomeScreen>
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return CustomCard(
-                  dataUniversity: dataUniversity.listUniversity[index],
-                  isSearchByMajors: isSearchByMajors);
+                dataUniversity: dataUniversity.listUniversity[index],
+                isSearchByMajors: isSearchByMajors,
+              );
             },
           ),
           onEndOfPage: () {

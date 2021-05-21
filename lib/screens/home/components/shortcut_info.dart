@@ -31,7 +31,7 @@ class ShortCutInfo extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Lora',
                 fontWeight: FontWeight.bold,
-                fontSize: 13,
+                fontSize: 16,
               ),
               softWrap: true,
             ),
@@ -48,15 +48,23 @@ class ShortCutInfo extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.amber,
-                    fontFamily: 'BreeSerif',
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(width: 50),
+                SizedBox(width: 30),
                 Text(
-                  'Tốt - 100 đánh giá',
+                  'Tốt ',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  '- 100 đánh giá',
                   style: TextStyle(
                     fontSize: 12,
-                    fontFamily: 'Lora',
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
               ],
@@ -68,7 +76,10 @@ class ShortCutInfo extends StatelessWidget {
                       RichText(
                         text: TextSpan(
                             text: 'Ngành:',
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText2!
+                                .copyWith(fontWeight: FontWeight.w400),
                             children: [
                               TextSpan(
                                 text: ' Công nghệ thông tin',
@@ -78,12 +89,15 @@ class ShortCutInfo extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text('Điểm năm 2020: '),
+                          Text(
+                            'Điểm năm 2020: ',
+                            style: TextStyle(fontSize: 12),
+                          ),
                           Text(
                             '30',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.green,
+                              color: Colors.deepOrangeAccent,
                             ),
                           )
                         ],

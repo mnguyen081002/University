@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/screens/info/info_screen.dart';
+import 'package:university_helper/ultis/theme.dart';
 
 import 'providers/dataMajorsProvider.dart';
 import 'providers/dataUniversityProvider.dart';
@@ -28,12 +29,17 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         theme: ThemeData(
+          accentColor: Colors.black54,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
           appBarTheme: AppBarTheme(
-              color: Colors.white,
-              iconTheme: IconThemeData(
-                color: Colors.black,
-              )),
-          canvasColor: Colors.white,
+            color: Colors.white,
+            iconTheme: IconThemeData(
+              color: Colors.black,
+            ),
+          ),
+          canvasColor: themeColorAppbar,
         ),
         home: MainScreen(),
         routes: {

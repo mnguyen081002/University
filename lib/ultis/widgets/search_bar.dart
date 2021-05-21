@@ -29,7 +29,7 @@ class SearchBar extends StatelessWidget {
                 ),
                 prefixIcon: Icon(Icons.search),
                 filled: true,
-                fillColor: Color(0xFFF2F4F5),
+                fillColor: Colors.white,
                 hintStyle: TextStyle(color: Colors.grey[600]),
                 hintText: hintText,
               ),

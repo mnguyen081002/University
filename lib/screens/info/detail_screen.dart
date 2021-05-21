@@ -4,15 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class InfoScreen extends StatefulWidget {
+class DetailScreen extends StatefulWidget {
   static const routeName = 'info-screen';
-  const InfoScreen({Key? key}) : super(key: key);
+  const DetailScreen({Key? key}) : super(key: key);
 
   @override
-  _InfoScreenState createState() => _InfoScreenState();
+  _DetailScreenState createState() => _DetailScreenState();
 }
 
-class _InfoScreenState extends State<InfoScreen> {
+class _DetailScreenState extends State<DetailScreen> {
   int _progress = 0;
   bool _isLoading = true;
   @override

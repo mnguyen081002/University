@@ -26,14 +26,17 @@ class ShortCutInfo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              dataUniversity.name,
-              style: TextStyle(
-                fontFamily: 'Lora',
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+            FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Text(
+                dataUniversity.name,
+                style: TextStyle(
+                  fontFamily: 'Lora',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+                softWrap: true,
               ),
-              softWrap: true,
             ),
             Spacer(),
             Row(
@@ -75,17 +78,18 @@ class ShortCutInfo extends StatelessWidget {
                     children: [
                       RichText(
                         text: TextSpan(
-                            text: 'Ngành:',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .copyWith(fontWeight: FontWeight.w400),
-                            children: [
-                              TextSpan(
-                                text: ' Công nghệ thông tin',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ]),
+                          text: 'Ngành:',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2!
+                              .copyWith(fontWeight: FontWeight.w400),
+                          children: [
+                            TextSpan(
+                              text: ' Công nghệ thông tin',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                       Row(
                         children: [

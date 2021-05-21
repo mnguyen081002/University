@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/screens/info/info_screen.dart';
+import 'package:university_helper/screens/info/detail_screen.dart';
 
 import 'providers/dataMajorsProvider.dart';
 import 'providers/dataUniversityProvider.dart';
@@ -38,11 +38,11 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          canvasColor: Colors.blue[100],
+          canvasColor: Colors.white,
         ),
         home: MainScreen(),
         routes: {
-          InfoScreen.routeName: (context) => InfoScreen(),
+          DetailScreen.routeName: (context) => DetailScreen(),
         },
       ),
     );

@@ -13,7 +13,9 @@ class DataUniversityProvider extends ChangeNotifier {
 
   Future fetchAndSetData() async {
     List<University> listUniversity = [];
+
     late final dataRef;
+
     if (_lastDocs == null) {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
@@ -26,8 +28,11 @@ class DataUniversityProvider extends ChangeNotifier {
           .limit(4)
           .get();
     }
+
     _lastDocs = dataRef.docs.last;
+
     final listDataUniversity = dataRef.docs;
+
     listDataUniversity.forEach((element) {
       final listDataMajors = element['listMajors'];
 
@@ -41,6 +46,7 @@ class DataUniversityProvider extends ChangeNotifier {
           studyTime: majors['studyTime'] as String,
         ));
       });
+
       listUniversity.add(
         University(
           name: element['name'],
@@ -58,7 +64,9 @@ class DataUniversityProvider extends ChangeNotifier {
         ),
       );
     });
+
     _listUniversity.addAll(listUniversity);
+
     notifyListeners();
   }
 }

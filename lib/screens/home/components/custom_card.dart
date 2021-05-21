@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:university_helper/models/university.dart';
 import 'package:university_helper/screens/home/components/shortcut_info.dart';
 import 'package:university_helper/screens/home/components/tag_university.dart';
-import 'package:university_helper/screens/info/info_screen.dart';
+import 'package:university_helper/screens/info/detail_screen.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard(
@@ -20,7 +20,7 @@ class CustomCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Get.toNamed(
-            InfoScreen.routeName,
+            DetailScreen.routeName,
             arguments: dataUniversity.universityUrl,
           );
         },

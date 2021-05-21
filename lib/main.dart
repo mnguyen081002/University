@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/screens/info/info_screen.dart';
-import 'package:university_helper/ultis/theme.dart';
 
 import 'providers/dataMajorsProvider.dart';
 import 'providers/dataUniversityProvider.dart';
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          canvasColor: themeColorAppbar,
+          canvasColor: Colors.blue[100],
         ),
         home: MainScreen(),
         routes: {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/models/university.dart';
-import 'package:university_helper/screens/home/components/shortcut_info.dart';
+import 'package:university_helper/screens/detail/detail_screen.dart';
+import 'package:university_helper/screens/home/components/shortcut_detail.dart';
 import 'package:university_helper/screens/home/components/tag_university.dart';
-import 'package:university_helper/screens/info/detail_screen.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard(

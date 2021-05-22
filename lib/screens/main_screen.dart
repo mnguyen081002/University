@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/screens/add_majors.dart';
-import 'package:university_helper/screens/add_university.dart';
 import 'package:university_helper/screens/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -13,8 +11,6 @@ class _MainScreenState extends State<MainScreen> {
   late int _selectIndex;
   final _page = [
     HomeScreen(),
-    AddMajors(),
-    AddUniversity(),
   ];
   late final PageController _pageController;
   void _onTapBottomNavigationBar(int index) {
@@ -47,14 +43,14 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.home_filled),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_rounded),
-            label: 'Add Majors',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Add University',
-          ),
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.article_rounded),
+          //     label: 'Add Majors',
+          //   ),
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.person),
+          //     label: 'Add University',
+          //   ),
         ],
         currentIndex: _selectIndex,
         onTap: _onTapBottomNavigationBar,

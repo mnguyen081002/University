@@ -2,11 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/screens/info/detail_screen.dart';
+import 'package:university_helper/screens/detail/detail_screen.dart';
+import 'package:university_helper/screens/home/home_screen.dart';
 
 import 'providers/dataMajorsProvider.dart';
 import 'providers/dataUniversityProvider.dart';
-import 'screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
           canvasColor: Colors.white,
         ),
-        home: MainScreen(),
+        home: HomeScreen(),
         routes: {
           DetailScreen.routeName: (context) => DetailScreen(),
         },

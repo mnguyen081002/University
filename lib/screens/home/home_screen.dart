@@ -5,7 +5,7 @@ import 'package:university_helper/providers/dataUniversityProvider.dart';
 import 'package:university_helper/screens/home/components/slider_bar.dart';
 import 'package:university_helper/ultis/widgets/search_bar.dart';
 
-import 'components/custom_card2.dart';
+import 'components/custom_card.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

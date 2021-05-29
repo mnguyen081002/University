@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/providers/dataUniversityProvider.dart';
-import 'package:university_helper/screens/home/components/custom_card.dart';
 import 'package:university_helper/screens/home/components/slider_bar.dart';
 import 'package:university_helper/ultis/widgets/search_bar.dart';
+
+import 'components/custom_card2.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -25,24 +25,29 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     super.build(context);
+    print(kToolbarHeight);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.orangeAccent[100],
           title: SearchBar(
             hintText: 'Tìm trường',
           ),
         ),
-        body: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              SliderBar(),
-              Divider(),
-              _buildListItem(),
-            ],
+        body: Container(
+          height: size.height,
+          color: Colors.grey[100],
+          child: SingleChildScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                SliderBar(),
+                _buildListItem(),
+              ],
+            ),
           ),
         ),
       ),
@@ -50,30 +55,20 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Consumer<DataUniversityProvider> _buildListItem() {
+    Size size = MediaQuery.of(context).size;
     return Consumer<DataUniversityProvider>(
       builder: (context, dataUniversity, _) {
-        return LazyLoadScrollView(
-          isLoading: isLoading,
+        return ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: size.height / 1.3),
           child: ListView.builder(
-            padding: EdgeInsets.all(10),
             itemCount: dataUniversity.listUniversity.length,
-            shrinkWrap: true,
             itemBuilder: (context, index) {
-              return CustomCard(
+              return CustomCard2(
                 dataUniversity: dataUniversity.listUniversity[index],
                 isSearchByMajors: isSearchByMajors,
               );
             },
           ),
-          onEndOfPage: () {
-            setState(() {
-              isLoading = true;
-            });
-            dataUniversity.fetchAndSetData();
-            setState(() {
-              isLoading = false;
-            });
-          },
         );
       },
     );

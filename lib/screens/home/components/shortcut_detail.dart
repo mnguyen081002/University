@@ -11,29 +11,23 @@ class ShortCutInfo extends StatelessWidget {
 
   final University dataUniversity;
   final bool isSearchByMajors;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 8.0,
-      ),
-      child: SizedBox(
-        height: size.height * 1 / 8,
-        width: size.width - size.width * 1 / 3 - 30,
+      padding: const EdgeInsets.only(left: 10, top: 10),
+      child: Container(
+        height: size.height * 1 / 9,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FittedBox(
-              fit: BoxFit.fitWidth,
               child: Text(
                 dataUniversity.name,
                 style: TextStyle(
                   fontFamily: 'Lora',
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
                 softWrap: true,
               ),
@@ -44,7 +38,7 @@ class ShortCutInfo extends StatelessWidget {
                 Icon(
                   Icons.star,
                   color: Colors.amber,
-                  size: 16,
+                  size: 18,
                 ),
                 Text(
                   '8.1',
@@ -58,7 +52,7 @@ class ShortCutInfo extends StatelessWidget {
                 Text(
                   'Tốt ',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
                   ),
@@ -81,7 +75,7 @@ class ShortCutInfo extends StatelessWidget {
                           text: 'Ngành:',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText2!
+                              .bodyText1!
                               .copyWith(fontWeight: FontWeight.w400),
                           children: [
                             TextSpan(
@@ -95,7 +89,7 @@ class ShortCutInfo extends StatelessWidget {
                         children: [
                           Text(
                             'Điểm năm 2020: ',
-                            style: TextStyle(fontSize: 12),
+                            style: Theme.of(context).textTheme.bodyText1!,
                           ),
                           Text(
                             '30',

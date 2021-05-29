@@ -19,7 +19,7 @@ class DataUniversityProvider extends ChangeNotifier {
     if (_lastDocs == null) {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
-          .limit(1)
+          .limit(2)
           .get();
     } else {
       dataRef = await FirebaseFirestore.instance
@@ -56,9 +56,9 @@ class DataUniversityProvider extends ChangeNotifier {
           isNationalUniversity: element['isNationalUniversity'],
           listMajors: listMajors,
           location: element['location'],
-          maxTuition: element['maxTuition'],
+          maxTuition: element['maxTuition'].toDouble(),
+          minTuition: element['minTuition'].toDouble(),
           universityType: element['universityType'],
-          minTuition: element['minTuition'],
           universityUrl: element['universityUrl'],
           id: element.id,
         ),

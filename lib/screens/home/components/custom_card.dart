@@ -35,7 +35,7 @@ class CustomCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    height: size.height * 1 / 8,
+                    height: size.height * 1 / 6,
                     width: size.width * 1 / 4,
                     child: Image.network(
                       dataUniversity.imageUrl,

@@ -8,11 +8,11 @@ class TagUniversity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 0,
-      bottom: -10,
+      right: 25,
+      bottom: 10,
       child: Image.asset(
         'assets/logo/icon_dhqg.png',
-        height: 35,
+        height: 55,
         fit: BoxFit.contain,
       ),
     );

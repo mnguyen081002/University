@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         theme: ThemeData(
+          textTheme: TextTheme(bodyText1: TextStyle(fontSize: 14)),
           accentColor: Colors.black54,
           iconTheme: IconThemeData(
             color: Colors.black,

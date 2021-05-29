@@ -43,14 +43,6 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.home_filled),
             label: 'Home',
           ),
-          //   BottomNavigationBarItem(
-          //     icon: Icon(Icons.article_rounded),
-          //     label: 'Add Majors',
-          //   ),
-          //   BottomNavigationBarItem(
-          //     icon: Icon(Icons.person),
-          //     label: 'Add University',
-          //   ),
         ],
         currentIndex: _selectIndex,
         onTap: _onTapBottomNavigationBar,

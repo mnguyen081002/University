@@ -4,15 +4,15 @@ import 'package:university_helper/models/university.dart';
 class UniversityImg extends StatelessWidget {
   const UniversityImg({
     Key? key,
-    required this.size,
     required this.dataUniversity,
   }) : super(key: key);
 
-  final Size size;
   final University dataUniversity;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(

@@ -4,9 +4,10 @@ import 'package:university_helper/models/university.dart';
 import 'package:university_helper/screens/detail/detail_screen.dart';
 import 'package:university_helper/screens/home/components/shortcut_detail.dart';
 import 'package:university_helper/screens/home/components/tag_university.dart';
+import 'package:university_helper/screens/home/components/university_img.dart';
 
-class CustomCard2 extends StatelessWidget {
-  const CustomCard2(
+class CustomCard extends StatelessWidget {
+  const CustomCard(
       {Key? key, required this.isSearchByMajors, required this.dataUniversity})
       : super(key: key);
   final University dataUniversity;
@@ -41,28 +42,9 @@ class CustomCard2 extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 1,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(20),
-                    topLeft: Radius.circular(10),
-                  ),
-                ),
-                height: size.height * 1 / 7,
-                width: size.width / 1.5,
-                child: Image.network(
-                  dataUniversity.imageUrl,
-                  fit: BoxFit.cover,
-                ),
+              UniversityImg(
+                size: size,
+                dataUniversity: dataUniversity,
               ),
               ShortCutInfo(
                 dataUniversity: dataUniversity,

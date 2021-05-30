@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/providers/dataUniversityProvider.dart';
 import 'package:university_helper/screens/home/components/slider_bar.dart';
-import 'package:university_helper/ultis/widgets/search_bar.dart';
+import 'package:university_helper/utils/widgets/search_bar.dart';
 
 import 'components/custom_card.dart';
 
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen>
           child: ListView.builder(
             itemCount: dataUniversity.listUniversity.length,
             itemBuilder: (context, index) {
-              return CustomCard2(
+              return CustomCard(
                 dataUniversity: dataUniversity.listUniversity[index],
                 isSearchByMajors: isSearchByMajors,
               );

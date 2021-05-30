@@ -20,6 +20,7 @@ class ListUniversity extends StatelessWidget {
         return ConstrainedBox(
           constraints: BoxConstraints(maxHeight: size.height / 1.3),
           child: ListView.builder(
+            padding: EdgeInsets.all(10),
             itemCount: dataUniversity.listUniversity.length,
             itemBuilder: (context, index) {
               return CustomCard(

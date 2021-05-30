@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/models/university.dart';
 import 'package:university_helper/screens/detail/detail_screen.dart';
-import 'package:university_helper/screens/home/components/shortcut_detail.dart';
-import 'package:university_helper/screens/home/components/tag_university.dart';
-import 'package:university_helper/screens/home/components/university_img.dart';
+import 'package:university_helper/screens/home/components/card/components/shortcut_detail.dart';
+import 'package:university_helper/screens/home/components/card/components/tag_university.dart';
+import 'package:university_helper/screens/home/components/card/components/university_img.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
@@ -53,18 +53,6 @@ class CustomCard extends StatelessWidget {
               ),
             ],
           ),
-          // Positioned(
-          //   top: 0,
-          //   right: 20,
-          //   child: IconButton(
-          //     icon: Icon(
-          //       Icons.bookmark,
-          //       color: Colors.red[700],
-          //       size: 50,
-          //     ),
-          //     onPressed: () {},
-          //   ),
-          // ),
           TagUniversity(),
         ]),
       ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/providers/dataUniversityProvider.dart';
 
-import 'custom_card.dart';
+import 'card/custom_card.dart';
 
 class ListUniversity extends StatelessWidget {
   const ListUniversity({

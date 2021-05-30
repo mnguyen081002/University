@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+const fakeData = [
+  'Công nghệ thông tin',
+  'Khoa học máy tính',
+  'Toán tin',
+  'Trí tuệ nhân tạo'
+];
+
 class SliderBar extends StatelessWidget {
   const SliderBar({Key? key}) : super(key: key);
 
@@ -32,14 +39,14 @@ class SliderBar extends StatelessWidget {
               child: TextButton(
                 onPressed: () {},
                 child: Text(
-                  'Cong',
+                  fakeData[index],
                   style: TextStyle(color: Colors.black),
                 ),
               ),
             ),
           );
         },
-        itemCount: 8,
+        itemCount: 4,
       ),
     );
   }

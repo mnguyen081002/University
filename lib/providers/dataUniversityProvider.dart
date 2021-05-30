@@ -19,7 +19,7 @@ class DataUniversityProvider extends ChangeNotifier {
     if (_lastDocs == null) {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
-          .limit(2)
+          .limit(3)
           .get();
     } else {
       dataRef = await FirebaseFirestore.instance

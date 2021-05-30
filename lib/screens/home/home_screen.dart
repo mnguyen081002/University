@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/providers/dataUniversityProvider.dart';
 import 'package:university_helper/screens/home/components/slider_bar.dart';
-import 'package:university_helper/ultis/widgets/search_bar.dart';
+import 'package:university_helper/utils/widgets/search_bar.dart';
 
-import 'components/custom_card2.dart';
+import 'components/list_university.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -27,7 +27,6 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     super.build(context);
-    print(kToolbarHeight);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -45,32 +44,12 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               children: [
                 SliderBar(),
-                _buildListItem(),
+                ListUniversity(isSearchByMajors: isSearchByMajors),
               ],
             ),
           ),
         ),
       ),
-    );
-  }
-
-  Consumer<DataUniversityProvider> _buildListItem() {
-    Size size = MediaQuery.of(context).size;
-    return Consumer<DataUniversityProvider>(
-      builder: (context, dataUniversity, _) {
-        return ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: size.height / 1.3),
-          child: ListView.builder(
-            itemCount: dataUniversity.listUniversity.length,
-            itemBuilder: (context, index) {
-              return CustomCard2(
-                dataUniversity: dataUniversity.listUniversity[index],
-                isSearchByMajors: isSearchByMajors,
-              );
-            },
-          ),
-        );
-      },
     );
   }
 

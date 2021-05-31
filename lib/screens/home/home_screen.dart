@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/providers/dataUniversityProvider.dart';
-import 'package:university_helper/utils/widgets/search_bar.dart';
 
+import '/providers/dataUniversityProvider.dart';
+import '/utils/widgets/search_bar.dart';
 import 'components/list/list_university.dart';
 import 'components/slider_bar.dart';
 

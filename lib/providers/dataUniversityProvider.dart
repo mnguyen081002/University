@@ -10,9 +10,7 @@ class DataUniversityProvider extends ChangeNotifier {
   University getById(String id) =>
       _listUniversity.firstWhere((element) => element.id == id);
 
-  Future fetchAndSetData({int count = 5}) async {
-    List<University> listUniversity = [];
-
+  Future fetchData(int count) async {
     late final dataRef;
 
     if (_lastDocs == null) {
@@ -24,19 +22,20 @@ class DataUniversityProvider extends ChangeNotifier {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
           .startAfterDocument(_lastDocs!)
-          .limit(1)
+          .limit(6)
           .get();
     }
 
     _lastDocs = dataRef.docs.last;
+    return dataRef;
+  }
 
-    final listDataUniversity = dataRef.docs;
+  Future fetchAndSetData({int count = 6}) async {
+    final dataRef = await fetchData(count);
 
-    listDataUniversity.forEach((element) {
-      listUniversity.add(University.fromJson(element));
-    });
+    final listDataUniversity = University.fromDatabase(dataRef.docs);
 
-    _listUniversity.addAll(listUniversity);
+    _listUniversity.addAll(listDataUniversity);
 
     notifyListeners();
   }

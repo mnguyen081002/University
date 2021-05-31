@@ -47,4 +47,7 @@ class University {
       id: jsonData.id,
     );
   }
+
+  static fromDatabase(List<dynamic> listData) => List<University>.from(
+      listData.map((jsonData) => University.fromJson(jsonData)));
 }

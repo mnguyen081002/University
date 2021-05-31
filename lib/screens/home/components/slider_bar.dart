@@ -7,18 +7,27 @@ const fakeData = [
   'Trí tuệ nhân tạo'
 ];
 
-class SliderBar extends StatelessWidget {
+class SliderBar extends StatelessWidget implements PreferredSize {
   const SliderBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 12),
+      clipBehavior: Clip.hardEdge,
+      padding: EdgeInsets.only(top: 5),
       width: size.width,
-      height: 70,
+      height: 50,
       decoration: BoxDecoration(
-        color: Colors.orangeAccent[100],
+        color: Theme.of(context).primaryColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 4,
+            offset: Offset(0, 2), // changes position of shadow
+          ),
+        ],
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30),
           bottomRight: Radius.circular(30),
@@ -50,4 +59,10 @@ class SliderBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget get child => SizedBox();
+
+  @override
+  Size get preferredSize => Size(0, 0);
 }

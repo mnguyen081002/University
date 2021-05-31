@@ -11,7 +11,7 @@ class DataUniversityProvider extends ChangeNotifier {
   University getById(String id) =>
       _listUniversity.firstWhere((element) => element.id == id);
 
-  Future fetchAndSetData() async {
+  Future fetchAndSetData({int count = 5}) async {
     List<University> listUniversity = [];
 
     late final dataRef;
@@ -19,13 +19,13 @@ class DataUniversityProvider extends ChangeNotifier {
     if (_lastDocs == null) {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
-          .limit(3)
+          .limit(count)
           .get();
     } else {
       dataRef = await FirebaseFirestore.instance
           .collection('ListUniversity')
           .startAfterDocument(_lastDocs!)
-          .limit(4)
+          .limit(1)
           .get();
     }
 

@@ -14,6 +14,7 @@ class University {
   final String id;
   bool isNationalUniversity;
   double rate;
+
   University({
     required this.id,
     required this.name,

@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/screens/detail/detail_screen.dart';
 import 'package:university_helper/screens/home/home_screen.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           create: (context) => DataUniversityProvider(),
         ),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         theme: ThemeData(
           primaryColor: Colors.orange[100],
           textTheme: TextTheme(

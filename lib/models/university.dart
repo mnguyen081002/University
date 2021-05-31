@@ -30,4 +30,21 @@ class University {
     required this.universityType,
     required this.universityUrl,
   });
+  static fromJson(dynamic jsonData) {
+    return University(
+      name: jsonData['name'],
+      imageUrl: jsonData['imageUrl'],
+      formsOfTraining: jsonData['formsOfTraining'],
+      idUniversity: jsonData['idUniversity'],
+      isNationalUniversity: jsonData['isNationalUniversity'],
+      listMajors: List<Majors>.from(
+          jsonData['listMajors'].map((i) => Majors.fromJson(i))),
+      location: jsonData['location'],
+      maxTuition: jsonData['maxTuition'].toDouble(),
+      minTuition: jsonData['minTuition'].toDouble(),
+      universityType: jsonData['universityType'],
+      universityUrl: jsonData['universityUrl'],
+      id: jsonData.id,
+    );
+  }
 }

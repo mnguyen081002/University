@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:university_helper/models/majors.dart';
 import 'package:university_helper/models/university.dart';
 
 class DataUniversityProvider extends ChangeNotifier {
@@ -34,35 +33,7 @@ class DataUniversityProvider extends ChangeNotifier {
     final listDataUniversity = dataRef.docs;
 
     listDataUniversity.forEach((element) {
-      final listDataMajors = element['listMajors'];
-
-      List<Majors> listMajors = [];
-
-      listDataMajors.forEach((majors) {
-        listMajors.add(Majors(
-          grade: majors['grade'] as List,
-          idMajors: majors['idMajors'] as String,
-          name: majors['nameMajors'] as String,
-          studyTime: majors['studyTime'] as String,
-        ));
-      });
-
-      listUniversity.add(
-        University(
-          name: element['name'],
-          imageUrl: element['imageUrl'],
-          formsOfTraining: element['formsOfTraining'],
-          idUniversity: element['idUniversity'],
-          isNationalUniversity: element['isNationalUniversity'],
-          listMajors: listMajors,
-          location: element['location'],
-          maxTuition: element['maxTuition'].toDouble(),
-          minTuition: element['minTuition'].toDouble(),
-          universityType: element['universityType'],
-          universityUrl: element['universityUrl'],
-          id: element.id,
-        ),
-      );
+      listUniversity.add(University.fromJson(element));
     });
 
     _listUniversity.addAll(listUniversity);

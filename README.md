@@ -1,4 +1,4 @@
-Ứng dụng hỗ trợ học sinh tìm trường đại học phù hợp.
+Ứng dụng hỗ trợ học sinh tìm trường đại học.
 
 
 

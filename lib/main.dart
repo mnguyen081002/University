@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/screens/detail/detail_screen.dart';
 import 'package:university_helper/screens/home/home_screen.dart';
@@ -26,9 +25,13 @@ class MyApp extends StatelessWidget {
           create: (context) => DataUniversityProvider(),
         ),
       ],
-      child: GetMaterialApp(
+      child: MaterialApp(
         theme: ThemeData(
-          textTheme: TextTheme(bodyText1: TextStyle(fontSize: 14)),
+          primaryColor: Colors.orange[100],
+          textTheme: TextTheme(
+            bodyText1: TextStyle(fontSize: 14),
+            bodyText2: TextStyle(fontWeight: FontWeight.w500),
+          ),
           accentColor: Colors.black54,
           iconTheme: IconThemeData(
             color: Colors.black,
@@ -39,7 +42,6 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          canvasColor: Colors.white,
         ),
         home: HomeScreen(),
         routes: {

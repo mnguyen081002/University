@@ -34,7 +34,7 @@ class CustomCard extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 4,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: Offset(1, 3), // changes position of shadow
             ),
           ],
           borderRadius: BorderRadius.circular(10),

@@ -33,8 +33,6 @@ class DataUniversityProvider extends ChangeNotifier {
     final listDataUniversity = dataRef.docs;
 
     listDataUniversity.forEach((element) {
-      final listDataMajors = element['listMajors'];
-
       listUniversity.add(University.fromJson(element));
     });
 

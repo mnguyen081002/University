@@ -1,0 +1,165 @@
+[33mcommit 5f4fbfeb94b0005f43b53f8b4d3631499998bc85[m[33m ([m[1;36mHEAD -> [m[1;32mnguyendev[m[33m)[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Tue Jun 1 00:52:30 2021 +0700
+
+    create fromJson
+
+[33mcommit 107230c10d49ef03534f3bb555629abf613211ca[m[33m ([m[1;31morigin/nguyendev[m[33m)[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Mon May 31 23:13:30 2021 +0700
+
+    fix
+
+[33mcommit 1c3f78e0c24961c552ec732643745619abd1a678[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Mon May 31 22:05:45 2021 +0700
+
+    update home screen -slider bar animation
+
+[33mcommit 21d4e84c94dd6ac9f9fcfef6004861c74a0664f3[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Mon May 31 00:55:59 2021 +0700
+
+    refactoring
+
+[33mcommit c0879bec313bc1a8fc48f26dc85fc65ddfa0eae8[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Mon May 31 00:41:40 2021 +0700
+
+    test bookmark
+
+[33mcommit ee590575de6f39535929546fcca4a5000ca4afe9[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Mon May 31 00:28:00 2021 +0700
+
+    update
+
+[33mcommit 09276ee3811faaf122809a1805201f7bb69d4379[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sun May 30 09:48:19 2021 +0700
+
+    refactor home --university_img
+
+[33mcommit 1ba20f1c208987ad5e7eb2db60f0109f4ba2b562[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sun May 30 00:46:58 2021 +0700
+
+    add preview img
+
+[33mcommit 2d8d5913c61b8d577791446857942abe495e734b[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sun May 30 00:27:11 2021 +0700
+
+    update homescreen
+
+[33mcommit fdf43a4c70c19df2060b79470eacc1b3e737edb3[m[33m ([m[1;32mmain[m[33m)[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sun May 30 00:26:20 2021 +0700
+
+    update home screen
+
+[33mcommit 35ba7ba09151392fcd1d092fdd1eb24941462404[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sat May 22 19:10:54 2021 +0700
+
+    implement web admin
+
+[33mcommit 2392e1b03814f45431266fc1574a0a082bcad8f3[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Fri May 21 22:35:58 2021 +0700
+
+    update detail screen
+
+[33mcommit d510bbaecd963df186a7a673b5ba36d60b49c37f[m
+Merge: c7450cb 64abf61
+Author: Minh Nguyen <76799726+3langn@users.noreply.github.com>
+Date:   Fri May 21 19:46:41 2021 +0700
+
+    Merge pull request #1 from 3langn/nguyen1
+    
+    add slidebar(homescreen)
+
+[33mcommit 64abf6180f5855aa5cfff542de3b48d7f23408aa[m[33m ([m[1;31morigin/nguyen1[m[33m, [m[1;32mnguyen1[m[33m)[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Fri May 21 19:44:22 2021 +0700
+
+    add slidebar(homescree)
+
+[33mcommit c7450cb1f24e043e10a5034723026e3d763f6dce[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Fri May 21 19:18:19 2021 +0700
+
+    add webview in infoscreen
+
+[33mcommit 4e8b76d4979216129e3a7e6b7ca083a199ac8d2b[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sun May 16 00:29:59 2021 +0700
+
+    update
+
+[33mcommit d9857af0dafd35503adee6197e58744f90cc8d69[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sun May 16 00:00:52 2021 +0700
+
+    update tag,info screen
+
+[33mcommit ef13b266b6440fcf5d3a4885286cbda9ab340cef[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sat May 15 13:34:36 2021 +0700
+
+    refactor
+
+[33mcommit 1128da9a36c30733c9df223d5aac99c9e64fcc01[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Sat May 15 01:21:43 2021 +0700
+
+    refactor
+
+[33mcommit fc8f99dc509e06815b00562f224baa3c1664c902[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Thu May 13 21:34:40 2021 +0700
+
+    1
+
+[33mcommit 068df889a88ce3b00cee12255508eeb67bb9732b[m
+Merge: 9e71513 67e6d93
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Thu May 13 00:30:34 2021 +0700
+
+    Merge branch 'main' of https://github.com/3langn/university_helper
+
+[33mcommit 9e71513c72fd1be13a8f2a1df3f74609a005fe56[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Thu May 13 00:28:48 2021 +0700
+
+    commit
+
+[33mcommit 67e6d931aa849ce56ac11d2ca53a452b700e7e75[m
+Author: Minh Nguyen <76799726+3langn@users.noreply.github.com>
+Date:   Wed May 12 17:55:09 2021 +0700
+
+    Update README.md
+
+[33mcommit 3c87f28b5ed1541b4932f75ba757e6d08b1d3994[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Wed May 12 17:54:13 2021 +0700
+
+    commit
+
+[33mcommit e41f649e4210ea6b8c8ebc2adb293fb46059b333[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Wed May 12 17:41:47 2021 +0700
+
+    commit
+
+[33mcommit fbe8b58c430a9ec10041bfc9e369f984827498e9[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Wed May 12 17:39:47 2021 +0700
+
+    commit
+
+[33mcommit a84602e20a55d4557bf54c07417c9ff61c5cbbdf[m
+Author: Minh Nguyen <3lang@gmail.com>
+Date:   Wed May 12 17:39:04 2021 +0700
+
+    first commit

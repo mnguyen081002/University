@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/models/university.dart';
 
 class UniversityImg extends StatelessWidget {
   const UniversityImg({
     Key? key,
-    required this.dataUniversity,
+    required this.image,
   }) : super(key: key);
-
-  final University dataUniversity;
+  final ImageProvider<Object> image;
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +29,8 @@ class UniversityImg extends StatelessWidget {
       ),
       height: size.height * 1 / 7,
       width: size.width / 1.5,
-      child: Image.network(
-        dataUniversity.imageUrl,
-        loadingBuilder: (BuildContext context, Widget child,
-            ImageChunkEvent? loadingProgress) {
-          if (loadingProgress == null) {
-            return child;
-          }
-          return Image.asset(
-            'assets/loading.gif',
-            fit: BoxFit.cover,
-          );
-        },
-        errorBuilder: (context, child, stackTrace) {
-          return Image.asset(
-            'assets/noImage.jpg',
-            fit: BoxFit.cover,
-          );
-        },
+      child: Image(
+        image: image,
         fit: BoxFit.cover,
       ),
     );

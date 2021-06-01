@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/providers/dataMajorsProvider.dart';
+import 'package:university_helper/providers/majors_provider.dart';
 import 'package:university_helper/services/majors/custom_search_majors.dart';
 
 class SearchMajorsDelegate extends CustomSearchDelegate<String> {
@@ -80,7 +80,7 @@ class SearchMajorsDelegate extends CustomSearchDelegate<String> {
     }
 
     void submit() {
-      Provider.of<DataMajorsProvider>(scaffoldCtx, listen: false).addMajors(
+      Provider.of<MajorsProvider>(scaffoldCtx, listen: false).addMajors(
         grade: khoiDaChon,
         idMajors: idMajorsCtl.text,
         name: nameMajors,

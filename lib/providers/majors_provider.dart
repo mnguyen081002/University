@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:university_helper/models/majors.dart';
 
-class DataMajorsProvider extends ChangeNotifier {
+class MajorsProvider extends ChangeNotifier {
   List<Majors> _listMajors = [];
   List<Majors> get listMajors => _listMajors;
   void addMajors({
@@ -10,8 +10,14 @@ class DataMajorsProvider extends ChangeNotifier {
     required String name,
     required String studyTime,
   }) {
-    _listMajors.add(Majors(
-        grade: grade, idMajors: idMajors, name: name, studyTime: studyTime));
+    _listMajors.add(
+      Majors(
+        grade: grade,
+        idMajors: idMajors,
+        name: name,
+        studyTime: studyTime,
+      ),
+    );
     notifyListeners();
   }
 

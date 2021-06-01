@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '/providers/dataUniversityProvider.dart';
+import '/providers/university_provider.dart';
 import '../../utils/widgets/search/search_appbar.dart';
 import 'components/list/list_university.dart';
 import 'components/slider_bar.dart';
@@ -26,8 +26,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void initState() {
-    final provider =
-        Provider.of<DataUniversityProvider>(context, listen: false);
+    final provider = Provider.of<UniversityProvider>(context, listen: false);
     provider.fetchAndSetData();
 
     super.initState();
@@ -66,15 +65,24 @@ class _HomeScreenState extends State<HomeScreen>
           ),
           body: Stack(
             children: [
-              TabBarView(
-                children: List.generate(
-                  4,
-                  (index) => ListUniversity(
-                    isSearchByMajors: isSearchByMajors,
-                    scrollController: _scrollController,
-                  ),
+              TabBarView(children: [
+                ListUniversity(
+                  isSearchByMajors: isSearchByMajors,
+                  scrollController: _scrollController,
                 ),
-              ),
+                ListUniversity(
+                  isSearchByMajors: isSearchByMajors,
+                  scrollController: _scrollController,
+                ),
+                ListUniversity(
+                  isSearchByMajors: isSearchByMajors,
+                  scrollController: _scrollController,
+                ),
+                ListUniversity(
+                  isSearchByMajors: isSearchByMajors,
+                  scrollController: _scrollController,
+                ),
+              ]),
               AnimatedPositioned(
                 top: _scrollPosition,
                 duration: _animatedDuration,

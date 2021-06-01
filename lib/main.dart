@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:university_helper/screens/detail/detail_screen.dart';
 import 'package:university_helper/screens/home/home_screen.dart';
 
-import 'providers/dataMajorsProvider.dart';
-import 'providers/dataUniversityProvider.dart';
+import 'providers/majors_provider.dart';
+import 'providers/university_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => DataMajorsProvider(),
+          create: (context) => MajorsProvider(),
         ),
         ChangeNotifierProvider(
-          create: (context) => DataUniversityProvider(),
+          create: (context) => UniversityProvider(),
         ),
       ],
       child: GetMaterialApp(

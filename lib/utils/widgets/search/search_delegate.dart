@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:university_helper/models/university.dart';
-import 'package:university_helper/providers/dataUniversityProvider.dart';
+import 'package:university_helper/providers/university_provider.dart';
 
 import 'list_suggest.dart';
 
@@ -41,7 +41,7 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final searchProduct =
-        Provider.of<DataUniversityProvider>(context, listen: false)
+        Provider.of<UniversityProvider>(context, listen: false)
             .searchUniversity(query);
 
     final List<University> suggestionList =

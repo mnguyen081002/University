@@ -33,6 +33,7 @@ dependencies:
   provider: ^5.0.0
   get: ^4.1.4
   webview_flutter: ^2.0.8
+  cached_network_image: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

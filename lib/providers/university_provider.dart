@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:university_helper/models/university.dart';
 
-class DataUniversityProvider extends ChangeNotifier {
+class UniversityProvider extends ChangeNotifier {
   List<University> _listUniversity = [];
   List<University> get listUniversity => _listUniversity;
   DocumentSnapshot<Object?>? _lastDocs;
@@ -11,7 +11,6 @@ class DataUniversityProvider extends ChangeNotifier {
       _listUniversity.firstWhere((element) => element.id == id);
 
   List<University> searchUniversity(String? query) {
-    print(query);
     return [
       ..._listUniversity.where((element) =>
           element.name.toLowerCase().contains(query!.toLowerCase()))
@@ -19,31 +18,39 @@ class DataUniversityProvider extends ChangeNotifier {
   }
 
   Future fetchData(int count) async {
-    late final dataRef;
+    late final data;
+
+    final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
 
     if (_lastDocs == null) {
-      dataRef = await FirebaseFirestore.instance
-          .collection('ListUniversity')
+      data = await dataRef
+          .orderBy("maxTuition", descending: true)
           .limit(count)
           .get();
     } else {
-      dataRef = await FirebaseFirestore.instance
-          .collection('ListUniversity')
+      data = await dataRef
+          .orderBy("maxTuition", descending: true)
           .startAfterDocument(_lastDocs!)
-          .limit(6)
+          .limit(1)
           .get();
     }
 
-    _lastDocs = dataRef.docs.last;
-    return dataRef;
+    _lastDocs = await data.docs.last;
+    return data;
   }
 
-  Future fetchAndSetData({int count = 6}) async {
-    final dataRef = await fetchData(count);
+  Future fetchAndSetData({int count = 3}) async {
+    final data = await fetchData(count);
 
-    final listDataUniversity = University.fromDatabase(dataRef.docs);
+    final listDataUniversity = University.fromDatabase(data.docs);
 
     _listUniversity.addAll(listDataUniversity);
+    //ToDo check data from firebase
+    // listDataUniversity.forEach((element) {
+    //   print(
+    //     element.name + ':' + element.maxTuition.toString(),
+    //   );
+    // });
     notifyListeners();
   }
 }

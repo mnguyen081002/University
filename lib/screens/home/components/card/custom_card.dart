@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/models/university.dart';
@@ -40,21 +41,29 @@ class CustomCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
         ),
-        child: Stack(children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              UniversityImg(
-                dataUniversity: dataUniversity,
+        child: CachedNetworkImage(
+          imageUrl: dataUniversity.imageUrl,
+          placeholder: (context, url) => Image.asset('assets/loading.gif'),
+          errorWidget: (context, url, error) =>
+              Image.asset('assets/noImage.jpg'),
+          imageBuilder: (context, imageProvider) {
+            return Stack(children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UniversityImg(
+                    image: imageProvider,
+                  ),
+                  ShortCutInfo(
+                    dataUniversity: dataUniversity,
+                    isSearchByMajors: isSearchByMajors,
+                  ),
+                ],
               ),
-              ShortCutInfo(
-                dataUniversity: dataUniversity,
-                isSearchByMajors: isSearchByMajors,
-              ),
-            ],
-          ),
-          TagUniversity(),
-        ]),
+              TagUniversity(),
+            ]);
+          },
+        ),
       ),
     );
   }

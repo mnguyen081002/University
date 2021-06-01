@@ -12,6 +12,7 @@ class University {
   final String universityType;
   final String universityUrl;
   final String id;
+
   bool isNationalUniversity;
   double rate;
 
@@ -30,6 +31,7 @@ class University {
     required this.universityType,
     required this.universityUrl,
   });
+
   static fromJson(dynamic jsonData) {
     return University(
       name: jsonData['name'],
@@ -48,6 +50,8 @@ class University {
     );
   }
 
-  static fromDatabase(List<dynamic> listData) => List<University>.from(
-      listData.map((jsonData) => University.fromJson(jsonData)));
+  static fromDatabase(List<dynamic> listData) {
+    return List<University>.from(
+        listData.map((jsonData) => University.fromJson(jsonData)));
+  }
 }

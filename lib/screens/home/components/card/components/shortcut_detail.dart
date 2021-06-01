@@ -8,11 +8,11 @@ import 'major_shortcut_detail.dart';
 class ShortCutInfo extends StatelessWidget {
   const ShortCutInfo({
     Key? key,
-    required this.dataUniversity,
+    required this.university,
     required this.isSearchByMajors,
   }) : super(key: key);
 
-  final University dataUniversity;
+  final University university;
   final bool isSearchByMajors;
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ShortCutInfo extends StatelessWidget {
           children: [
             FittedBox(
               child: Text(
-                dataUniversity.name,
+                university.name,
                 style: TextStyle(
                   fontFamily: 'Lora',
                   fontWeight: FontWeight.bold,
@@ -36,7 +36,7 @@ class ShortCutInfo extends StatelessWidget {
               ),
             ),
             Spacer(),
-            RatingInfo(),
+            RatingInfo(rate: university.rate),
             isSearchByMajors ? MajorShortcutDetail() : Text('25 ngành'),
           ],
         ),

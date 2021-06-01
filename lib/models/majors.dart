@@ -11,10 +11,19 @@ class Majors {
   });
   static fromJson(dynamic jsonData) {
     return Majors(
-      grade: jsonData['grade'] as List,
-      idMajors: jsonData['idMajors'] as String,
-      name: jsonData['nameMajors'] as String,
-      studyTime: jsonData['studyTime'] as String,
+      grade: jsonData['grade'],
+      idMajors: jsonData['idMajors'],
+      name: jsonData['nameMajors'],
+      studyTime: jsonData['studyTime'],
+    );
+  }
+
+  static fromMap(Map<String, dynamic> mapData) {
+    return Majors(
+      grade: mapData['grade'],
+      idMajors: mapData['idMajors'],
+      name: mapData['nameMajors'],
+      studyTime: mapData['studyTime'],
     );
   }
 }

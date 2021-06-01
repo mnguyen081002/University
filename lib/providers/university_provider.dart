@@ -17,21 +17,18 @@ class UniversityProvider extends ChangeNotifier {
     ];
   }
 
-  Future fetchData(int count) async {
+  Future fetchData({required int count, String? orderBy = 'maxTuition'}) async {
     late final data;
 
     final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
 
     if (_lastDocs == null) {
-      data = await dataRef
-          .orderBy("maxTuition", descending: true)
-          .limit(count)
-          .get();
+      data = await dataRef.orderBy("rate", descending: true).limit(count).get();
     } else {
       data = await dataRef
-          .orderBy("maxTuition", descending: true)
+          .orderBy("rate", descending: true)
           .startAfterDocument(_lastDocs!)
-          .limit(1)
+          .limit(3)
           .get();
     }
 
@@ -40,7 +37,7 @@ class UniversityProvider extends ChangeNotifier {
   }
 
   Future fetchAndSetData({int count = 3}) async {
-    final data = await fetchData(count);
+    final data = await fetchData(count: count);
 
     final listDataUniversity = University.fromDatabase(data.docs);
 

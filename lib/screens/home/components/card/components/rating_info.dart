@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class RatingInfo extends StatelessWidget {
   const RatingInfo({
     Key? key,
+    required this.rate,
   }) : super(key: key);
+
+  final double rate;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class RatingInfo extends StatelessWidget {
           size: 18,
         ),
         Text(
-          '8.1',
+          '$rate',
           style: TextStyle(
             fontSize: 16,
             color: Colors.amber,

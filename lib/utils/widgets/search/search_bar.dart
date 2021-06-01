@@ -20,7 +20,7 @@ class SearchBar extends StatelessWidget {
       ),
       child: Container(
         height: 40,
-        width: size.width - actionSize,
+        width: size.width - kActionSize,
         child: TextField(
           enabled: false,
           decoration: InputDecoration(

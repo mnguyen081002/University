@@ -55,12 +55,12 @@ class CustomCard extends StatelessWidget {
                     image: imageProvider,
                   ),
                   ShortCutInfo(
-                    dataUniversity: dataUniversity,
+                    university: dataUniversity,
                     isSearchByMajors: isSearchByMajors,
                   ),
                 ],
               ),
-              TagUniversity(),
+              if (dataUniversity.isNationalUniversity) TagUniversity(),
             ]);
           },
         ),

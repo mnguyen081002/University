@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:university_helper/utils/constants.dart';
 
 import '/providers/university_provider.dart';
 import '../../utils/widgets/search/search_appbar.dart';
@@ -11,8 +12,6 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
-
-const sliderBarOptions = ['Điểm cao', 'Đánh giá', 'ĐHQG', 'Hot'];
 
 class _HomeScreenState extends State<HomeScreen>
     with AutomaticKeepAliveClientMixin<HomeScreen> {
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen>
             bottom: TabBar(
               tabs: List.generate(4, (index) {
                 return Tab(
-                  text: sliderBarOptions[index],
+                  text: kSliderBarOptions[index],
                 );
               }),
             ),

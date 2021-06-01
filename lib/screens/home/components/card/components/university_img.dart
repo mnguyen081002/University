@@ -33,6 +33,22 @@ class UniversityImg extends StatelessWidget {
       width: size.width / 1.5,
       child: Image.network(
         dataUniversity.imageUrl,
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
+          return Image.asset(
+            'assets/loading.gif',
+            fit: BoxFit.cover,
+          );
+        },
+        errorBuilder: (context, child, stackTrace) {
+          return Image.asset(
+            'assets/noImage.jpg',
+            fit: BoxFit.cover,
+          );
+        },
         fit: BoxFit.cover,
       ),
     );

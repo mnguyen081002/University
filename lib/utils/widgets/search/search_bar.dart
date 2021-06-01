@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/screens/home/home_screen.dart';
+import 'package:university_helper/utils/widgets/search/search_delegate.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({

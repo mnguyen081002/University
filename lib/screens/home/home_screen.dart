@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:university_helper/models/university.dart';
-import 'package:university_helper/screens/detail/detail_screen.dart';
 
 import '/providers/dataUniversityProvider.dart';
-import '/utils/widgets/search_appbar.dart';
+import '../../utils/widgets/search/search_appbar.dart';
 import 'components/list/list_university.dart';
 import 'components/slider_bar.dart';
 
@@ -91,62 +89,4 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   bool get wantKeepAlive => true;
-}
-
-class UniversitySearchDelegate extends SearchDelegate<String> {
-  final List<University> recentUniversity = [];
-
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: Icon(Icons.clear),
-        onPressed: () {
-          query = '';
-        },
-      )
-    ];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-      icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_arrow,
-        progress: transitionAnimation,
-      ),
-      onPressed: () {
-        close(context, '');
-      },
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    return Container();
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    final searchProduct =
-        Provider.of<DataUniversityProvider>(context, listen: false)
-            .searchUniversity(query);
-
-    final List<University> suggestionList =
-        query.isEmpty ? recentUniversity : searchProduct;
-
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          onTap: () => Navigator.of(context).pushReplacementNamed(
-            DetailScreen.routeName,
-            arguments: suggestionList[index].id,
-          ),
-          leading: Icon(Icons.location_city),
-          title: Text(suggestionList[index].name),
-        );
-      },
-      itemCount: suggestionList.length > 5 ? 5 : suggestionList.length,
-    );
-  }
 }

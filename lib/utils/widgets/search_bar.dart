@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:university_helper/screens/home/home_screen.dart';
 
 import '../constants.dart';
 
@@ -13,7 +14,10 @@ class SearchBar extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () => showSearch(
+        context: context,
+        delegate: UniversitySearchDelegate(),
+      ),
       child: Container(
         height: 40,
         width: size.width - actionSize,

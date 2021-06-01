@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class DetailScreen extends StatefulWidget {
-  static const routeName = 'info-screen';
+  static const routeName = 'detail-screen';
   const DetailScreen({Key? key}) : super(key: key);
 
   @override

@@ -32,7 +32,7 @@ class University {
     required this.universityUrl,
   });
 
-  static fromJson(dynamic jsonData) {
+  factory University.fromJson(dynamic jsonData) {
     return University(
       name: jsonData['name'],
       imageUrl: jsonData['imageUrl'],

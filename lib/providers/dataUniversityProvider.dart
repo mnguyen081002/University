@@ -10,6 +10,14 @@ class DataUniversityProvider extends ChangeNotifier {
   University getById(String id) =>
       _listUniversity.firstWhere((element) => element.id == id);
 
+  List<University> searchUniversity(String? query) {
+    print(query);
+    return [
+      ..._listUniversity.where((element) =>
+          element.name.toLowerCase().contains(query!.toLowerCase()))
+    ];
+  }
+
   Future fetchData(int count) async {
     late final dataRef;
 
@@ -36,7 +44,6 @@ class DataUniversityProvider extends ChangeNotifier {
     final listDataUniversity = University.fromDatabase(dataRef.docs);
 
     _listUniversity.addAll(listDataUniversity);
-
     notifyListeners();
   }
 }

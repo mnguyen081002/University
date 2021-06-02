@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
           title: SearchAppBar(
-            hintText: 'Tìm trường',
+            hintText: 'Tìm trường'
           ),
           bottom: TabBar(
             controller: _tabController,
@@ -92,24 +92,13 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             TabBarView(
               controller: _tabController,
-              children: [
-                ListUniversity(
+              children: List.generate(
+                4,
+                (index) => ListUniversity(
                   isSearchByMajors: isSearchByMajors,
                   scrollController: _scrollController,
                 ),
-                ListUniversity(
-                  isSearchByMajors: isSearchByMajors,
-                  scrollController: _scrollController,
-                ),
-                ListUniversity(
-                  isSearchByMajors: isSearchByMajors,
-                  scrollController: _scrollController,
-                ),
-                ListUniversity(
-                  isSearchByMajors: isSearchByMajors,
-                  scrollController: _scrollController,
-                ),
-              ],
+              ),
             ),
             AnimatedPositioned(
               top: _scrollPosition,

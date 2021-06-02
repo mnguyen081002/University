@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'color_theme.dart';
 
-const themeColorAppbar = Color.fromRGBO(255, 209, 128, 1);
+const kColorAppbar = Color.fromRGBO(255, 209, 128, 1);
 
 enum AppTheme {
   OrangeLight,

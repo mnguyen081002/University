@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     final provider = Provider.of<UniversityProvider>(context, listen: false);
-    provider.fetchAndSetData();
+    provider.fetchAndSetData(orderBy: kTabBarOptions[0]);
 
     super.initState();
 
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen>
     _scrollController.addListener(() {
       final scrollPosition = _scrollController.position;
       if (scrollPosition.pixels == scrollPosition.maxScrollExtent)
-        provider.fetchAndSetData();
+        provider.fetchAndSetData(orderBy: kTabBarOptions[_selectedIndex]);
 
       if (scrollPosition.pixels <= 130) {
         setState(() {

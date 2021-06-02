@@ -22,15 +22,18 @@ class UniversityProvider extends ChangeNotifier {
     ];
   }
 
-  Future fetchData({required int count, String orderBy = 'maxTuition'}) async {
+  Future fetchData({required int count, required String orderBy}) async {
     late final data;
 
     final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
-
     if (_lastDocs == null) {
-      data =
-          await dataRef.orderBy(orderBy, descending: true).limit(count).get();
-    } else {
+      if (orderBy != 'isNationalUniversity') {
+        data =
+            await dataRef.orderBy(orderBy, descending: true).limit(count).get();
+      } else {
+        data = await dataRef.where(orderBy, isEqualTo: true).get();
+      }
+    } else if (orderBy != 'isNationalUniversity') {
       data = await dataRef
           .orderBy(orderBy, descending: true)
           .startAfterDocument(_lastDocs!)
@@ -42,7 +45,7 @@ class UniversityProvider extends ChangeNotifier {
     return data;
   }
 
-  Future fetchAndSetData({int count = 3, String orderBy = 'maxTuition'}) async {
+  Future fetchAndSetData({int count = 3, required String orderBy}) async {
     final data = await fetchData(count: count, orderBy: orderBy);
 
     final listDataUniversity = University.fromDatabase(data.docs);

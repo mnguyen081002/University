@@ -28,11 +28,11 @@ class SplashScreenView extends GetView<SplashScreenController> {
                   },
                 ),
               ),
-              SizedBox(height: 40),
-              AnimatedPositioned(
-                duration: Duration(milliseconds: 50000),
+              AnimatedOpacity(
+                duration: _.textAnimationController.duration!,
+                opacity: _.textAnimationController.value,
                 child: Text(
-                  'Study',
+                  'University',
                   style: kSplashTextStyle.copyWith(
                     color: primaryGrey,
                   ),

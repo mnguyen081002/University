@@ -8,6 +8,7 @@ class SplashScreenController extends GetxController
     with SingleGetTickerProviderMixin {
   // animation controller for lottie
   late AnimationController animationController;
+  late AnimationController textAnimationController;
 
   // initializing userData instance
 
@@ -17,10 +18,17 @@ class SplashScreenController extends GetxController
     // splash animation config
 
     animationController = AnimationController(
-      duration: Duration(seconds: 5),
+      duration: Duration(seconds: 2),
       vsync: this,
     );
+    textAnimationController = AnimationController(
+      duration: Duration(seconds: 1),
+      vsync: this,
+    );
+    animationController.value.obs;
+
     animationController.forward();
+    textAnimationController.forward();
 
     animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -38,6 +46,7 @@ class SplashScreenController extends GetxController
   @override
   void onClose() async {
     animationController.dispose();
+    textAnimationController.dispose();
     super.onClose();
   }
 }

@@ -19,13 +19,9 @@ class SplashScreenView extends GetView<SplashScreenController> {
               Container(
                 child: Lottie.asset(
                   'assets/lottie/online-study.json',
-                  fit: BoxFit.cover,
                   controller: _.animationController,
                   frameRate: FrameRate(60),
                   repeat: true,
-                  onLoaded: (composition) {
-                    _.animationController..duration = composition.duration;
-                  },
                 ),
               ),
               AnimatedOpacity(

@@ -18,16 +18,17 @@ class SplashScreenController extends GetxController
     // splash animation config
 
     animationController = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(milliseconds: 2500),
       vsync: this,
     );
     textAnimationController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(milliseconds: 500),
       vsync: this,
     );
     animationController.value.obs;
 
     animationController.forward();
+
     textAnimationController.forward();
 
     animationController.addStatusListener((status) {
@@ -38,7 +39,7 @@ class SplashScreenController extends GetxController
       }
     });
     Timer(
-      Duration(milliseconds: 5000),
+      Duration(milliseconds: 5500),
       () => Get.offNamed(HomeScreen.routeName),
     );
   }

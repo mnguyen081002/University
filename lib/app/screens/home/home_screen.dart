@@ -15,9 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen>
-    with
-        AutomaticKeepAliveClientMixin<HomeScreen>,
-        SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late ScrollController _scrollController;
   late TabController _tabController;
   final _animatedDuration = const Duration(milliseconds: 200);
@@ -72,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -109,7 +106,4 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

@@ -2,7 +2,6 @@
     package="com.example.university_helper">
 
    <uses-permission android:name="android.permission.INTERNET"/>
-
    <application
         android:label="university_helper"
         android:icon="@mipmap/ic_launcher">

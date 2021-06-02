@@ -4,6 +4,7 @@ import 'package:university_helper/models/majors.dart';
 class MajorsProvider extends ChangeNotifier {
   List<Majors> _listMajors = [];
   List<Majors> get listMajors => _listMajors;
+
   void addMajors({
     required List<String> grade,
     required String idMajors,

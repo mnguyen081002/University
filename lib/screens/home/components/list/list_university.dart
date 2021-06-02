@@ -19,7 +19,7 @@ class ListUniversity extends StatelessWidget {
     return Consumer<UniversityProvider>(
       builder: (context, dataUniversity, _) {
         return dataUniversity.listUniversity.isEmpty
-            ? Center(child: Text('Something Wrong'))
+            ? Center(child: CircularProgressIndicator())
             : ListView.builder(
                 controller: scrollController,
                 primary: false,

@@ -6,6 +6,11 @@ class UniversityProvider extends ChangeNotifier {
   List<University> _listUniversity = [];
   List<University> get listUniversity => _listUniversity;
   DocumentSnapshot<Object?>? _lastDocs;
+  void reset() {
+    _listUniversity.clear();
+    _lastDocs = null;
+    notifyListeners();
+  }
 
   University getById(String id) =>
       _listUniversity.firstWhere((element) => element.id == id);
@@ -17,16 +22,17 @@ class UniversityProvider extends ChangeNotifier {
     ];
   }
 
-  Future fetchData({required int count, String? orderBy = 'maxTuition'}) async {
+  Future fetchData({required int count, String orderBy = 'maxTuition'}) async {
     late final data;
 
     final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
 
     if (_lastDocs == null) {
-      data = await dataRef.orderBy("rate", descending: true).limit(count).get();
+      data =
+          await dataRef.orderBy(orderBy, descending: true).limit(count).get();
     } else {
       data = await dataRef
-          .orderBy("rate", descending: true)
+          .orderBy(orderBy, descending: true)
           .startAfterDocument(_lastDocs!)
           .limit(3)
           .get();
@@ -36,8 +42,8 @@ class UniversityProvider extends ChangeNotifier {
     return data;
   }
 
-  Future fetchAndSetData({int count = 3}) async {
-    final data = await fetchData(count: count);
+  Future fetchAndSetData({int count = 3, String orderBy = 'maxTuition'}) async {
+    final data = await fetchData(count: count, orderBy: orderBy);
 
     final listDataUniversity = University.fromDatabase(data.docs);
 

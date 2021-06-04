@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/app/models/university.dart';
+import 'package:university_helper/app/utils/constants.dart';
 
 class UniversityProvider extends ChangeNotifier {
   List<University> _listUniversity = [];
@@ -13,6 +14,7 @@ class UniversityProvider extends ChangeNotifier {
   void reset() {
     _listUniversity.clear();
     _lastDocs = null;
+    data = null;
     isReachedEnd = false;
     notifyListeners();
   }
@@ -31,7 +33,7 @@ class UniversityProvider extends ChangeNotifier {
     try {
       final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
       if (_lastDocs == null) {
-        if (orderBy != 'isNationalUniversity') {
+        if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
           data = await dataRef
               .orderBy(orderBy, descending: true)
               .limit(count)
@@ -39,22 +41,22 @@ class UniversityProvider extends ChangeNotifier {
         } else {
           data = await dataRef.where(orderBy, isEqualTo: true).get();
         }
-      } else if (orderBy != 'isNationalUniversity') {
+      } else if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
         data = await dataRef
             .orderBy(orderBy, descending: true)
             .startAfterDocument(_lastDocs!)
             .limit(3)
             .get();
       }
-      if (data.docs.isEmpty) {
+
+      if (data.docs.isEmpty || data == null) {
         isReachedEnd = true;
         Get.snackbar('Warning', 'Đã hết trường Đại học',
             snackPosition: SnackPosition.BOTTOM);
       }
+
       _lastDocs = await data.docs.last;
     } catch (e) {
-      print(e);
-      notifyListeners();
       throw e;
     }
   }
@@ -63,6 +65,8 @@ class UniversityProvider extends ChangeNotifier {
     await fetchData(count: count, orderBy: orderBy);
 
     final listDataUniversity = University.fromDatabase(data.docs);
+
+    data = null;
 
     _listUniversity.addAll(listDataUniversity);
     //ToDo check data from firebase

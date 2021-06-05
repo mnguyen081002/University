@@ -14,8 +14,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late ScrollController _scrollController;
   late TabController _tabController;
   final _animatedDuration = const Duration(milliseconds: 200);
@@ -23,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen>
   bool isLoading = false;
   bool isSearchByMajors = true;
   bool isScroll = false;
-  var _scrollPosition = 0.0;
+  late AnimationController _animationPosition;
   int _selectedIndex = 0;
 
   @override
@@ -35,25 +34,25 @@ class _HomeScreenState extends State<HomeScreen>
 
     _scrollController = ScrollController();
     _tabController = TabController(length: 4, vsync: this);
-
+    _animationPosition =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
     _scrollController.addListener(() {
       final scrollPosition = _scrollController.position;
-      if (scrollPosition.pixels == scrollPosition.maxScrollExtent)
+      if (scrollPosition.pixels > 80) {
+        _animationPosition.forward();
+      } else {
+        _animationPosition.reverse();
+      }
+      if (scrollPosition.pixels == scrollPosition.maxScrollExtent) {
         provider.fetchAndSetData(orderBy: kTabBarOptions[_selectedIndex]);
-
-      if (scrollPosition.pixels <= 130) {
-        setState(() {
-          _scrollPosition = -(scrollPosition.pixels / 2);
-        });
       }
     });
 
     _tabController.addListener(() {
       _selectedIndex = _tabController.index;
-      setState(() {
-        _scrollPosition = 0.0;
-      });
+
       provider.reset();
+
       provider.fetchAndSetData(
         count: 6,
         orderBy: kTabBarOptions[_selectedIndex],
@@ -96,9 +95,15 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
             ),
-            AnimatedPositioned(
-              top: _scrollPosition,
-              duration: _animatedDuration,
+            AnimatedBuilder(
+              animation: _animationPosition.view,
+              builder: (BuildContext context, Widget? child) {
+                return AnimatedPositioned(
+                  top: _animationPosition.value * -50,
+                  duration: _animationPosition.duration!,
+                  child: child!,
+                );
+              },
               child: SliderBar(),
             ),
           ],

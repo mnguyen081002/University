@@ -7,9 +7,9 @@ import 'package:university_helper/app/utils/constants.dart';
 class HomeScreenController extends GetxController
     with SingleGetTickerProviderMixin {
   var _listUniversity = [].obs;
-  var isLoading = false;
+  var isLoading = false.obs;
   var isReachedEnd = false.obs;
-  var isSearchByMajors = false.obs;
+  var isSearchByMajors = true.obs;
   var scrollPositionController = 0.0.obs;
   var selectedIndex = 0.obs;
 
@@ -40,6 +40,8 @@ class HomeScreenController extends GetxController
   }
 
   Future fetchData({required int count, required String orderBy}) async {
+    isLoading.value = true;
+
     try {
       final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
       if (_lastDocs == null) {
@@ -69,17 +71,16 @@ class HomeScreenController extends GetxController
     } catch (e) {
       throw e;
     }
+    isLoading.value = false;
   }
 
   Future fetchAndSetData({int count = 3, required String orderBy}) async {
-    isLoading = true;
     await fetchData(count: count, orderBy: orderBy);
 
     final listDataUniversity = University.fromDatabase(data.docs);
 
     data = null;
     _listUniversity.addAll(listDataUniversity);
-    isLoading = false;
     //ToDo check data from firebase
     // listDataUniversity.forEach((element) {
     //   print(
@@ -99,7 +100,9 @@ class HomeScreenController extends GetxController
 
     scrollController.addListener(() {
       final scrollPosition = scrollController.position;
+      //load more cua em o day
       if (scrollPosition.pixels == scrollPosition.maxScrollExtent)
+        //ham nay la em lay data tu firebase
         fetchAndSetData(orderBy: kTabBarOptions[selectedIndex.value]);
 
       if (scrollPosition.pixels <= 130) {

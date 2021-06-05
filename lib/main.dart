@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Choice University',
-      theme: appThemeData[AppTheme.OrangeLight],
+      theme: appThemeData[AppTheme.BlueLight],
       initialRoute: AppPages.INITIAL,
       routes: {
         DetailScreen.routeName: (context) => DetailScreen(),

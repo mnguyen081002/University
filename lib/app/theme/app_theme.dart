@@ -7,6 +7,7 @@ const kColorAppbar = Color.fromRGBO(255, 209, 128, 1);
 enum AppTheme {
   OrangeLight,
   OrangeDark,
+  BlueLight,
 }
 
 final appThemeData = {
@@ -33,6 +34,19 @@ final appThemeData = {
     colorScheme: ColorScheme.dark(
       primary: primaryOrange,
     ),
+    iconTheme: IconThemeData(
+      color: Colors.black,
+    ),
+    appBarTheme: AppBarTheme(
+      color: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+    ),
+  ),
+  AppTheme.BlueLight: ThemeData(
+    primaryColor: primaryBlue,
+    accentColor: darkColor,
     iconTheme: IconThemeData(
       color: Colors.black,
     ),

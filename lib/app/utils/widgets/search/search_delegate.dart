@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 import 'package:university_helper/app/models/university.dart';
-import 'package:university_helper/app/providers/university_provider.dart';
+import 'package:university_helper/app/screens/home/controllers/home_controller.dart';
 
 import 'list_suggest.dart';
 
@@ -41,8 +41,7 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final searchProduct =
-        Provider.of<UniversityProvider>(context, listen: false)
-            .searchUniversity(query);
+        Get.find<HomeScreenController>().searchUniversity(query);
 
     final List<University> suggestionList =
         query.isEmpty ? recentUniversity : searchProduct;

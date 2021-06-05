@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:university_helper/app/screens/home/bindings/splash_screen_binding.dart';
+import 'package:university_helper/app/screens/home/home_screen.dart';
 
 import '../screens/splash_screen/bindings/splash_screen_binding.dart';
 import '../screens/splash_screen/views/splash_screen_view.dart';
@@ -19,11 +21,11 @@ class AppPages {
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.PROFILE,
-    //   page: () => ProfileView(),
-    //   binding: ProfileBinding(),
-    // ),
+    GetPage(
+      name: _Paths.HOME,
+      page: () => HomeScreen(),
+      binding: HomeScreenBinding(),
+    ),
     // GetPage(
     //   name: _Paths.WELCOME,
     //   page: () => WelcomeView(),

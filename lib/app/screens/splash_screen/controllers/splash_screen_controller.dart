@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/screens/home/home_screen.dart';
+import 'package:university_helper/app/routes/app_pages.dart';
 
 class SplashScreenController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -40,7 +40,7 @@ class SplashScreenController extends GetxController
     });
     Timer(
       Duration(milliseconds: 5500),
-      () => Get.offNamed(HomeScreen.routeName),
+      () => Get.offNamed(Routes.HOME),
     );
   }
 

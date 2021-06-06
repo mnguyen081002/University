@@ -6,7 +6,7 @@ import 'package:university_helper/app/utils/constants.dart';
 
 class HomeScreenController extends GetxController
     with SingleGetTickerProviderMixin {
-  var _listUniversity = [].obs;
+  RxList<dynamic> _listUniversity = [].obs;
   var isLoading = false.obs;
   var isReachedEnd = false.obs;
   var isSearchByMajors = true.obs;
@@ -34,8 +34,8 @@ class HomeScreenController extends GetxController
 
   List<University> searchUniversity(String? query) {
     return [
-      ..._listUniversity.where((element) =>
-          element.name.toLowerCase().contains(query!.toLowerCase()))
+      ..._listUniversity
+          .where((element) => element.name.contains(query!.capitalizeFirst))
     ];
   }
 

@@ -48,7 +48,7 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
 
     return ListSuggest(
       suggestionList: suggestionList,
-      word: query,
+      query: query,
     );
   }
 }

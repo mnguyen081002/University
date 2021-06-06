@@ -14,9 +14,6 @@ final appThemeData = {
   AppTheme.OrangeLight: ThemeData(
     primaryColor: primaryOrange,
     accentColor: darkColor,
-    colorScheme: ColorScheme.light(
-      primary: primaryOrange,
-    ),
     iconTheme: IconThemeData(
       color: Colors.black,
     ),

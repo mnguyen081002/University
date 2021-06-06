@@ -18,6 +18,7 @@ class CustomCard extends StatelessWidget {
   final bool isSearchByMajors;
   @override
   Widget build(BuildContext context) {
+    print('Card build');
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
@@ -27,7 +28,7 @@ class CustomCard extends StatelessWidget {
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         width: size.width,
         height: size.height / 3.5,
         decoration: BoxDecoration(

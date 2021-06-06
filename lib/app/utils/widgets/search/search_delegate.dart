@@ -46,6 +46,9 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
     final List<University> suggestionList =
         query.isEmpty ? recentUniversity : searchProduct;
 
-    return ListSuggest(suggestionList: suggestionList);
+    return ListSuggest(
+      suggestionList: suggestionList,
+      query: query,
+    );
   }
 }

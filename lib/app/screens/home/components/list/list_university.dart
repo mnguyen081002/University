@@ -12,26 +12,31 @@ class ListUniversity extends GetView<HomeScreenController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenController>(builder: (_) {
+      print('List build');
       return Obx(
-        () => _.listUniversity.isEmpty
-            ? Center(child: CircularProgressIndicator())
-            : Column(
-                children: [
-                  ListView.builder(
-                    controller: _.scrollController,
-                    primary: false,
-                    padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
-                    itemCount: _.listUniversity.length,
-                    itemBuilder: (context, index) {
-                      return CustomCard(
-                        dataUniversity: _.listUniversity[index],
-                        isSearchByMajors: _.isSearchByMajors.value,
-                      );
-                    },
-                  ),
-                  if (_.isLoading) CircularProgressIndicator()
-                ],
-              ),
+        () {
+          return _.listUniversity.isEmpty
+              ? Center(child: CircularProgressIndicator())
+              : Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    ListView.builder(
+                      controller: _.scrollController,
+                      primary: false,
+                      padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                      itemCount: _.listUniversity.length,
+                      itemBuilder: (context, index) {
+                        return CustomCard(
+                          dataUniversity: _.listUniversity[index],
+                          isSearchByMajors: _.isSearchByMajors.value,
+                        );
+                      },
+                    ),
+                    if (_.isLoading.value)
+                      CircularProgressIndicator(strokeWidth: 1),
+                  ],
+                );
+        },
       );
     });
   }

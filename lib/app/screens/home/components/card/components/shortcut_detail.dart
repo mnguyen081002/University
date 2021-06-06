@@ -37,7 +37,9 @@ class ShortCutInfo extends StatelessWidget {
             ),
             Spacer(),
             RatingInfo(rate: university.rate),
-            isSearchByMajors ? MajorShortcutDetail() : Text('25 ngành'),
+            isSearchByMajors
+                ? const MajorShortcutDetail()
+                : const Text('25 ngành'),
           ],
         ),
       ),

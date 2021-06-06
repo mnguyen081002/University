@@ -15,11 +15,11 @@ class SliderBar extends StatelessWidget implements PreferredSize {
     Size size = MediaQuery.of(context).size;
     return Container(
       clipBehavior: Clip.hardEdge,
-      padding: EdgeInsets.only(top: 5),
+      padding: const EdgeInsets.only(top: 5),
       width: size.width,
       height: 50,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).primaryColor.withOpacity(0.6),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -28,9 +28,9 @@ class SliderBar extends StatelessWidget implements PreferredSize {
             offset: Offset(0, 2), // changes position of shadow
           ),
         ],
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: const Radius.circular(30),
+          bottomRight: const Radius.circular(30),
         ),
       ),
       child: ListView.builder(
@@ -49,7 +49,7 @@ class SliderBar extends StatelessWidget implements PreferredSize {
                 onPressed: () {},
                 child: Text(
                   fakeData[index],
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ),

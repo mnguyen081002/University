@@ -32,11 +32,13 @@ class HomeScreenController extends GetxController
   University getById(String id) =>
       _listUniversity.firstWhere((element) => element.id == id);
 
-  List<University> searchUniversity(String? query) {
-    return [
-      ..._listUniversity
-          .where((element) => element.name.contains(query!.capitalizeFirst))
-    ];
+  Future<List<University>> searchUniversity(String? query) async {
+    final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
+    final listQuery =
+        await dataRef.where('keyword', arrayContains: query).get();
+    final list = University.fromDatabase(listQuery.docs);
+    print(list);
+    return list;
   }
 
   Future fetchData({required int count, required String orderBy}) async {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/models/university.dart';
 import 'package:university_helper/app/screens/home/controllers/home_controller.dart';
+import 'package:university_helper/app/utils/search_shared_preferences.dart';
 
 import 'list_suggest.dart';
 
 class UniversitySearchDelegate extends SearchDelegate<String> {
-  final List<University> recentUniversity = [];
+  final List recentUniversity = ['Nothings'];
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -40,15 +40,23 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final searchProduct =
-        Get.find<HomeScreenController>().searchUniversity(query);
-
-    final List<University> suggestionList =
-        query.isEmpty ? recentUniversity : searchProduct;
-
-    return ListSuggest(
-      suggestionList: suggestionList,
-      query: query,
+    final name = SearchSharedPreferences.getHistory();
+    print(query.capitalizeFirst);
+    return FutureBuilder(
+      future: Get.find<HomeScreenController>()
+          .searchUniversity(query.trimLeft().capitalize!),
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        late final suggestionList;
+        if (snapshot.hasData && query.isNotEmpty) {
+          suggestionList = snapshot.data;
+        } else {
+          suggestionList = name ?? recentUniversity;
+        }
+        return ListSuggest(
+          suggestionList: suggestionList,
+          query: query.capitalize!,
+        );
+      },
     );
   }
 }

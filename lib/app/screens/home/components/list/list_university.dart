@@ -12,7 +12,6 @@ class ListUniversity extends GetView<HomeScreenController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenController>(builder: (_) {
-      print('List build');
       return Obx(
         () {
           return _.listUniversity.isEmpty
@@ -23,7 +22,7 @@ class ListUniversity extends GetView<HomeScreenController> {
                     ListView.builder(
                       controller: _.scrollController,
                       primary: false,
-                      padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                      padding: EdgeInsets.fromLTRB(10, 50, 10, 40),
                       itemCount: _.listUniversity.length,
                       itemBuilder: (context, index) {
                         return CustomCard(
@@ -33,7 +32,7 @@ class ListUniversity extends GetView<HomeScreenController> {
                       },
                     ),
                     if (_.isLoading.value)
-                      CircularProgressIndicator(strokeWidth: 1),
+                      CircularProgressIndicator(strokeWidth: 1)
                   ],
                 );
         },

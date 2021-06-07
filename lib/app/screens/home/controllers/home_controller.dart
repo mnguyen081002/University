@@ -71,6 +71,8 @@ class HomeScreenController extends GetxController
 
       _lastDocs = await data.docs.last;
     } catch (e) {
+      isLoading.value = false;
+
       throw e;
     }
     isLoading.value = false;
@@ -83,12 +85,6 @@ class HomeScreenController extends GetxController
 
     data = null;
     _listUniversity.addAll(listDataUniversity);
-    //ToDo check data from firebase
-    // listDataUniversity.forEach((element) {
-    //   print(
-    //     element.name + ':' + element.maxTuition.toString(),
-    //   );
-    // });
   }
 
   @override

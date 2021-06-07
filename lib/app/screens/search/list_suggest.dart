@@ -14,8 +14,8 @@ class ListSuggest extends StatelessWidget {
   }) : super(key: key);
   final List suggestionList;
 
-  String highlightWord(String query, String name) {
-    String result = name.replaceFirst('$query', '<b>$query</b>');
+  String highlightWord(String query, String text) {
+    String result = text.replaceFirst('$query', '<b>$query</b>');
     return result;
   }
 

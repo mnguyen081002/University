@@ -6,16 +6,12 @@ import 'package:university_helper/app/routes/app_pages.dart';
 
 class SplashScreenController extends GetxController
     with SingleGetTickerProviderMixin {
-  // animation controller for lottie
   late AnimationController animationController;
   late AnimationController textAnimationController;
-
-  // initializing userData instance
 
   @override
   void onInit() async {
     super.onInit();
-    // splash animation config
 
     animationController = AnimationController(
       duration: Duration(milliseconds: 2500),

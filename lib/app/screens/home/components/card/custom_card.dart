@@ -46,16 +46,16 @@ class CustomCard extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: dataUniversity.imageUrl,
           placeholder: (context, url) => Image.asset('assets/loading.gif'),
-          errorWidget: (context, url, error) =>
-              Image.asset('assets/noImage.jpg'),
+          errorWidget: (context, url, error) => Image.asset(
+            'assets/noImage.jpg',
+            fit: BoxFit.cover,
+          ),
           imageBuilder: (context, imageProvider) {
             return Stack(children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  UniversityImg(
-                    image: imageProvider,
-                  ),
+                  UniversityImg(image: imageProvider),
                   ShortCutInfo(
                     university: dataUniversity,
                     isSearchByMajors: isSearchByMajors,

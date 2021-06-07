@@ -14,7 +14,6 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int _progress = 0;
-  bool _isLoading = true;
   @override
   void initState() {
     super.initState();

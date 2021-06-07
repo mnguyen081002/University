@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:university_helper/app/models/university.dart';
+import 'package:university_helper/app/screens/detail/detail_screen.dart';
 import 'package:university_helper/app/screens/home/controllers/home_controller.dart';
-import 'package:university_helper/app/utils/search_shared_preferences.dart';
+import 'package:university_helper/app/screens/search/search_shared_preferences.dart';
 
 import 'list_suggest.dart';
 
 class UniversitySearchDelegate extends SearchDelegate<String> {
-  final List recentUniversity = ['Nothings'];
-
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -38,21 +38,35 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
     return Container();
   }
 
+  void onTapUniversity(dynamic university) async {
+    if (university is University) {
+      print(university.name);
+      await SearchSharedPreferences.setHistory(university.name);
+      Get.toNamed(
+        DetailScreen.routeName,
+        arguments: university.universityUrl,
+      );
+    } else {
+      query = university;
+    }
+  }
+
   @override
   Widget buildSuggestions(BuildContext context) {
     final name = SearchSharedPreferences.getHistory();
-    print(query.capitalizeFirst);
+
     return FutureBuilder(
       future: Get.find<HomeScreenController>()
-          .searchUniversity(query.trimLeft().capitalize!),
+          .searchUniversity(query.removeAllWhitespace.capitalize),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-        late final suggestionList;
+        List suggestionList = [];
         if (snapshot.hasData && query.isNotEmpty) {
           suggestionList = snapshot.data;
-        } else {
-          suggestionList = name ?? recentUniversity;
+        } else if (name != null) {
+          suggestionList.addAll(name);
         }
         return ListSuggest(
+          onTap: onTapUniversity,
           suggestionList: suggestionList,
           query: query.capitalize!,
         );

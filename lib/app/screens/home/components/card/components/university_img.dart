@@ -4,9 +4,12 @@ class UniversityImg extends StatelessWidget {
   const UniversityImg({
     Key? key,
     required this.image,
+    this.height,
+    this.width,
   }) : super(key: key);
   final ImageProvider<Object> image;
-
+  final double? width;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -27,8 +30,8 @@ class UniversityImg extends StatelessWidget {
           topLeft: Radius.circular(10),
         ),
       ),
-      height: size.height * 1 / 7,
-      width: size.width / 1.5,
+      height:height??  size.height * 1 / 7,
+      width:width?? size.width / 1.5,
       child: Image(
         image: image,
         fit: BoxFit.cover,

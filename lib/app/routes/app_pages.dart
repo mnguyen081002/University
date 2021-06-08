@@ -12,7 +12,6 @@ part 'app_routes.dart';
 
 class AppPages {
   static const INITIAL = Routes.SEARCH;
-
   static final routes = [
     GetPage(
       name: _Paths.POPULAR_DETAIL,

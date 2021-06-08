@@ -15,7 +15,11 @@ class ListUniversity extends GetView<HomeScreenController> {
       return Obx(
         () {
           return _.listUniversity.isEmpty
-              ? Center(child: CircularProgressIndicator())
+              ? Center(
+                  child: _.isLoading.value
+                      ? CircularProgressIndicator()
+                      : Text('Đã có lỗi xảy ra  :('),
+                )
               : Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
@@ -31,7 +35,7 @@ class ListUniversity extends GetView<HomeScreenController> {
                         );
                       },
                     ),
-                    if (_.isLoading.value)
+                    if (_.isScrollLoading.value)
                       CircularProgressIndicator(strokeWidth: 1)
                   ],
                 );

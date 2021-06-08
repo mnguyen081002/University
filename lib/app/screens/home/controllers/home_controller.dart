@@ -7,6 +7,7 @@ import 'package:university_helper/app/utils/constants.dart';
 class HomeScreenController extends GetxController
     with SingleGetTickerProviderMixin {
   RxList<dynamic> _listUniversity = [].obs;
+  var isScrollLoading = false.obs;
   var isLoading = false.obs;
   var isReachedEnd = false.obs;
   var isSearchByMajors = true.obs;
@@ -42,11 +43,12 @@ class HomeScreenController extends GetxController
   }
 
   Future fetchData({required int count, required String orderBy}) async {
-    isLoading.value = true;
+    isScrollLoading.value = true;
 
     try {
       final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
       if (_lastDocs == null) {
+        isLoading.value = true;
         if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
           data = await dataRef
               .orderBy(orderBy, descending: true)
@@ -71,11 +73,12 @@ class HomeScreenController extends GetxController
 
       _lastDocs = await data.docs.last;
     } catch (e) {
+      isScrollLoading.value = false;
       isLoading.value = false;
-
       throw e;
     }
     isLoading.value = false;
+    isScrollLoading.value = false;
   }
 
   Future fetchAndSetData({int count = 3, required String orderBy}) async {
@@ -107,7 +110,7 @@ class HomeScreenController extends GetxController
         scrollPositionController.value = -(scrollPosition.pixels / 2);
       }
       if (scrollController.position.pixels <
-          scrollPosition.maxScrollExtent * 0.95) isLoading.value = false;
+          scrollPosition.maxScrollExtent * 0.95) isScrollLoading.value = false;
     });
 
     tabController.addListener(() {

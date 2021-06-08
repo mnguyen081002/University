@@ -106,6 +106,8 @@ class HomeScreenController extends GetxController
       if (scrollPosition.pixels <= 130) {
         scrollPositionController.value = -(scrollPosition.pixels / 2);
       }
+      if (scrollController.position.pixels <
+          scrollPosition.maxScrollExtent * 0.95) isLoading.value = false;
     });
 
     tabController.addListener(() {

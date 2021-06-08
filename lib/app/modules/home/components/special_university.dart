@@ -42,7 +42,10 @@ class SpecialOffers extends StatelessWidget {
                 image: 'https://pbs.twimg.com/media/EuVasS3XAAAOMRg.jpg',
                 category: "Các trường hot",
                 numOfBrands: 24,
-                press: () {},
+                press: () {
+                  Get.toNamed(Routes.POPULAR_DETAIL,
+                      arguments: Popular.University);
+                },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),
             ],

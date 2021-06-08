@@ -35,7 +35,7 @@ class HomeScreenController extends GetxController
   Future<List<University>> searchUniversity(String? query) async {
     final dataRef = FirebaseFirestore.instance.collection('ListUniversity');
     final listQuery =
-        await dataRef.where('keyword', arrayContains: query).get();
+        await dataRef.where('keyword', arrayContains: query).limit(5).get();
     final list = University.fromDatabase(listQuery.docs);
     print(list);
     return list;
@@ -63,7 +63,7 @@ class HomeScreenController extends GetxController
             .get();
       }
 
-      if (data.docs.isEmpty || data == null) {
+      if ((data.docs.isEmpty || data == null) && _listUniversity.isNotEmpty) {
         isReachedEnd.value = true;
         Get.snackbar('Warning', 'Đã hết trường Đại học',
             snackPosition: SnackPosition.BOTTOM);

@@ -54,10 +54,10 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final name = SearchSharedPreferences.getHistory();
-
+    print(query.capitalize!.trimLeft());
     return FutureBuilder(
       future: Get.find<HomeScreenController>()
-          .searchUniversity(query.removeAllWhitespace.capitalize),
+          .searchUniversity(query.capitalize!.trimLeft()),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         List suggestionList = [];
         if (snapshot.hasData && query.isNotEmpty) {

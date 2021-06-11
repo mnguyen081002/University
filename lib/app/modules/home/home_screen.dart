@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:university_helper/app/global_widgets/search/search_appbar.dart';
+import 'package:university_helper/app/utils/size_config.dart';
 
-import 'controllers/home_screen_controller.dart';
+import 'components/body.dart';
 
-class HomeScreen extends GetView<HomeScreenController> {
+class HomeScreen extends StatelessWidget {
+  static String routeName = "/home";
+  @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
         elevation: 0.0,
-        title: SearchAppBar(hintText: 'Tìm trường'),
+        title: SearchAppBar(hintText: 'Search'),
       ),
-      body: SafeArea(
-        child: Column(
-          children: [],
-        ),
-      ),
+      body: Body(),
     );
   }
 }

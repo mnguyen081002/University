@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/app/modules/search/components/search/search_bar.dart';
+import 'package:university_helper/app/global_widgets/search/search_bar.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({

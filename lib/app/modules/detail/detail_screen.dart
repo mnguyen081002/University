@@ -27,6 +27,7 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        title: Text('University'),
         backgroundColor: Colors.white,
       ),
       body: SafeArea(

@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:university_helper/app/screens/search/search_shared_preferences.dart';
 
+import 'app/modules/detail/detail_screen.dart';
+import 'app/modules/search/components/search/search_shared_preferences.dart';
 import 'app/routes/app_pages.dart';
-import 'app/screens/detail/detail_screen.dart';
 import 'app/theme/app_theme.dart';
 
 void main() async {

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/models/university.dart';
-import 'package:university_helper/app/screens/detail/detail_screen.dart';
+import 'package:university_helper/app/data/models/university.dart';
+import 'package:university_helper/app/modules/detail/detail_screen.dart';
 
 import 'components/shortcut_detail.dart';
 import 'components/tag_university.dart';

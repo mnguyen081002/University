@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/models/university.dart';
-import 'package:university_helper/app/screens/detail/detail_screen.dart';
-import 'package:university_helper/app/screens/home/controllers/home_controller.dart';
-import 'package:university_helper/app/screens/search/search_shared_preferences.dart';
+import 'package:university_helper/app/data/models/university.dart';
+import 'package:university_helper/app/modules/detail/detail_screen.dart';
+import 'package:university_helper/app/modules/search/components/search/search_shared_preferences.dart';
+import 'package:university_helper/app/modules/search/controllers/search_controller.dart';
 
 import 'list_suggest.dart';
 
@@ -56,7 +56,7 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
     final name = SearchSharedPreferences.getHistory();
     print(query.capitalize!.trimLeft());
     return FutureBuilder(
-      future: Get.find<HomeScreenController>()
+      future: Get.find<SearchScreenController>()
           .searchUniversity(query.capitalize!.trimLeft()),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         List suggestionList = [];

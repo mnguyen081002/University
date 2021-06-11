@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/screens/home/components/search/search_appbar.dart';
-import 'package:university_helper/app/screens/home/controllers/home_controller.dart';
 import 'package:university_helper/app/utils/constants.dart';
 
 import 'components/list/list_university.dart';
+import 'components/search/search_appbar.dart';
 import 'components/slider_bar.dart';
+import 'controllers/search_controller.dart';
 
-class HomeScreen extends GetView<HomeScreenController> {
+class SearchScreen extends GetView<SearchScreenController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: GetBuilder<HomeScreenController>(
+      child: GetBuilder<SearchScreenController>(
         builder: (builder) {
+          print('GetBuilder');
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Theme.of(context).primaryColor,

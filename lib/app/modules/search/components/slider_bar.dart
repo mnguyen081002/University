@@ -7,11 +7,12 @@ const fakeData = [
   'Trí tuệ nhân tạo'
 ];
 
-class SliderBar extends StatelessWidget implements PreferredSize {
+class SliderBar extends StatelessWidget {
   const SliderBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print('SliderBar Build');
     Size size = MediaQuery.of(context).size;
     return Container(
       clipBehavior: Clip.hardEdge,
@@ -59,10 +60,4 @@ class SliderBar extends StatelessWidget implements PreferredSize {
       ),
     );
   }
-
-  @override
-  Widget get child => SizedBox();
-
-  @override
-  Size get preferredSize => Size(0, 0);
 }

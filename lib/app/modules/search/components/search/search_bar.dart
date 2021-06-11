@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/app/screens/search/search_delegate.dart';
+import 'package:university_helper/app/modules/search/components/search/search_delegate.dart';
 
 import '../../../../utils/constants.dart';
 

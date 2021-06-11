@@ -1,26 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/models/university.dart';
+import 'package:university_helper/app/data/models/university.dart';
 import 'package:university_helper/app/utils/constants.dart';
 
-class HomeScreenController extends GetxController
+class SearchScreenController extends GetxController
     with SingleGetTickerProviderMixin {
   RxList<dynamic> _listUniversity = [].obs;
-  var isScrollLoading = false.obs;
-  var isLoading = false.obs;
-  var isReachedEnd = false.obs;
-  var isSearchByMajors = true.obs;
-  var scrollPositionController = 0.0.obs;
-  var selectedIndex = 0.obs;
+
+  final isScrollLoading = false.obs;
+  final isLoading = false.obs;
+  final isReachedEnd = false.obs;
+  final isSearchByMajors = true.obs;
+  final scrollPositionController = 0.0.obs;
+  final selectedIndex = 0.obs;
 
   get listUniversity => _listUniversity;
   DocumentSnapshot<Object?>? _lastDocs;
 
   late var data;
-  late ScrollController scrollController;
-  late Duration animatedDuration;
-  late TabController tabController;
+  late final ScrollController scrollController;
+  late final Duration animatedDuration;
+  late final TabController tabController;
 
   void reset() {
     _listUniversity.clear();
@@ -75,6 +76,7 @@ class HomeScreenController extends GetxController
     } catch (e) {
       isScrollLoading.value = false;
       isLoading.value = false;
+      print(e);
       throw e;
     }
     isLoading.value = false;
@@ -101,12 +103,12 @@ class HomeScreenController extends GetxController
 
     scrollController.addListener(() {
       final scrollPosition = scrollController.position;
-      //load more cua em o day
-      if (scrollPosition.pixels == scrollPosition.maxScrollExtent)
-        //ham nay la em lay data tu firebase
-        fetchAndSetData(orderBy: kTabBarOptions[selectedIndex.value]);
 
+      if (scrollPosition.pixels == scrollPosition.maxScrollExtent)
+        fetchAndSetData(orderBy: kTabBarOptions[selectedIndex.value]);
       if (scrollPosition.pixels <= 130) {
+        print(scrollPosition.pixels);
+
         scrollPositionController.value = -(scrollPosition.pixels / 2);
       }
       if (scrollController.position.pixels <

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:university_helper/app/screens/home/controllers/home_controller.dart';
+import 'package:university_helper/app/modules/home/controllers/home_screen_controller.dart';
 
 class HomeScreenBinding extends Bindings {
   @override

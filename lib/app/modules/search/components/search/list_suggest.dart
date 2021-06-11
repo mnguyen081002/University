@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:university_helper/app/models/university.dart';
+import 'package:university_helper/app/data/models/university.dart';
 
 class ListSuggest extends StatelessWidget {
   final String query;

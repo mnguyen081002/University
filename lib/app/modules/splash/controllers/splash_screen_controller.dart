@@ -36,7 +36,7 @@ class SplashScreenController extends GetxController
     });
     Timer(
       Duration(milliseconds: 5500),
-      () => Get.offNamed(Routes.HOME),
+      () => Get.offNamed(Routes.SEARCH),
     );
   }
 

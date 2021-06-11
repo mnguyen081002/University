@@ -8,6 +8,7 @@ enum AppTheme {
   OrangeLight,
   OrangeDark,
   BlueLight,
+  Light,
 }
 
 final appThemeData = {
@@ -53,5 +54,19 @@ final appThemeData = {
         color: Colors.black,
       ),
     ),
+  ),
+  AppTheme.Light: ThemeData(
+    primaryColor: primaryWhite,
+    accentColor: darkColor,
+    iconTheme: IconThemeData(
+      color: Colors.black,
+    ),
+    appBarTheme: AppBarTheme(
+      color: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+    ),
+    canvasColor: Colors.white,
   ),
 };

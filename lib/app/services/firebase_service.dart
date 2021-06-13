@@ -1,16 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:university_helper/app/data/models/university.dart';
+import 'package:university_helper/app/mixin/print_log_mixin.dart';
 import 'package:university_helper/app/utils/constants.dart';
-import 'package:university_helper/mixin/print_log_mixin.dart';
 
 class FirebaseService with PrintLogMixin {
-  final dataRef = FirebaseFirestore.instance.collection(MAIN_COLLECTION);
+  final dataRef =
+      FirebaseFirestore.instance.collection(FirebaseCollection.MAIN_COLLECTION);
   late var data;
   DocumentSnapshot<Object?>? _lastDocs;
 
   Future<List<University>> searchUniversity(String? query) async {
-    final listQuery =
-        await dataRef.where('keyword', arrayContains: query).limit(5).get();
+    final listQuery = await dataRef
+        .where(FirebaseField.KEYWORD, arrayContains: query)
+        .limit(5)
+        .get();
     final list = University.fromDatabase(listQuery.docs);
     print(list);
     return list;

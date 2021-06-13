@@ -1,16 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Flash Deal"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Bill"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Game"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Tính điểm tốt nghiệp"},
+      {"icon": "assets/icons/analysis.svg", "text": "Chọn trường thích hợp"},
+      {"icon": "assets/icons/idea.svg", "text": "Bill"},
+      {"icon": "assets/icons/save.svg", "text": "Game"},
+      {"icon": "assets/icons/calculator.svg", "text": "Tính điểm tốt nghiệp"},
     ];
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +53,12 @@ class CategoryCard extends StatelessWidget {
                 color: Color(0xFFFFECDF),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(Icons.calculate),
+              child: SvgPicture.asset(
+                icon,
+                fit: BoxFit.contain,
+                width: 30,
+                height: 30,
+              ),
             ),
             SizedBox(height: 5),
             Text(text, textAlign: TextAlign.center)

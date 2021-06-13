@@ -6,6 +6,7 @@ const kTabBarOptions = [
   'isNationalUniversity',
   'mixTuition'
 ];
+const MAIN_COLLECTION = 'ListUniversity';
 
 abstract class TabBarOptions {
   static const RATE = _Paths.RATE;

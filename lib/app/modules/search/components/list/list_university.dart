@@ -14,6 +14,7 @@ class ListUniversity extends GetView<SearchScreenController> {
     return GetBuilder<SearchScreenController>(builder: (_) {
       return Obx(
         () {
+          print(_.isLoading.value);
           return _.listUniversity.isEmpty
               ? Center(
                   child: _.isLoading.value

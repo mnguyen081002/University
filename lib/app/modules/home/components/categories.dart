@@ -50,8 +50,8 @@ class CategoryCard extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: Color(0xFFFFECDF),
                 borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey[200]!),
               ),
               child: SvgPicture.asset(
                 icon,

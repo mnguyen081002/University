@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'app/global_widgets/search/search_shared_preferences.dart';
@@ -8,6 +9,10 @@ import 'app/routes/app_pages.dart';
 import 'app/utils/theme/app_theme.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent, // transparent status bar
+  ));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await SearchSharedPreferences.init();

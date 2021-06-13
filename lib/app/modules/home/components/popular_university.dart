@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/modules/home/components/product_card.dart';
+import 'package:university_helper/app/modules/home/components/university_card.dart';
 import 'package:university_helper/app/modules/home/controllers/home_screen_controller.dart';
 import 'package:university_helper/app/utils/size_config.dart';
 

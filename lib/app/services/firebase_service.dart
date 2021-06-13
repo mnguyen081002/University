@@ -21,13 +21,13 @@ class FirebaseService with PrintLogMixin {
 
   Future fetchData({required int count, required String orderBy}) async {
     if (_lastDocs == null) {
-      if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
+      if (orderBy != FirebaseField.NATIONAL_UNIVERSITY) {
         data =
             await dataRef.orderBy(orderBy, descending: true).limit(count).get();
       } else {
         data = await dataRef.where(orderBy, isEqualTo: true).get();
       }
-    } else if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
+    } else if (orderBy != FirebaseField.NATIONAL_UNIVERSITY) {
       data = await dataRef
           .orderBy(orderBy, descending: true)
           .startAfterDocument(_lastDocs!)

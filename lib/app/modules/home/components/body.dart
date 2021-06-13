@@ -22,6 +22,7 @@ class Body extends StatelessWidget {
             SpecialOffers(),
             SizedBox(height: 20),
             PopularProducts(),
+            SizedBox(height: 20),
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:university_helper/app/theme/text_theme.dart';
+import 'package:university_helper/app/utils/theme/text_theme.dart';
 
 class MajorShortcutDetail extends StatelessWidget {
   const MajorShortcutDetail({

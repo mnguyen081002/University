@@ -34,13 +34,6 @@ class FirebaseService with PrintLogMixin {
           .limit(3)
           .get();
     }
-
-    // if ((data.docs.isEmpty || data == null) && _listUniversity.isNotEmpty) {
-    //   isReachedEnd.value = true;
-    //   Get.snackbar('Warning', 'Đã hết trường Đại học',
-    //       snackPosition: SnackPosition.BOTTOM);
-    // }
-
     _lastDocs = await data.docs.last;
   }
 

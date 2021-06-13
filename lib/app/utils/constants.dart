@@ -8,6 +8,14 @@ const kTabBarOptions = [
 ];
 const MAIN_COLLECTION = 'ListUniversity';
 
+abstract class FirebaseCollection {
+  static const MAIN_COLLECTION = 'ListUniversity';
+}
+
+abstract class FirebaseField {
+  static const KEYWORD = 'keyword';
+}
+
 abstract class TabBarOptions {
   static const RATE = _Paths.RATE;
   static const MAX_TUITION = _Paths.MAX_TUITION;

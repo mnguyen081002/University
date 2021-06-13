@@ -10,7 +10,8 @@ class SearchAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding:
+          EdgeInsets.fromLTRB(15, MediaQuery.of(context).padding.top, 15, 15),
       child: Row(
         children: [
           SearchBar(hintText: hintText),

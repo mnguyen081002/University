@@ -11,6 +11,11 @@ var kSubTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
   color: Colors.grey[700],
 );
+var kTitleTextStyle = TextStyle(
+  fontSize: 18,
+  color: Colors.black,
+  fontWeight: FontWeight.w600,
+);
 var kSplashTextStyle = GoogleFonts.lato(
   textStyle: TextStyle(
     fontSize: 38,

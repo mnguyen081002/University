@@ -70,21 +70,21 @@ packages:
       name: cloud_firestore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   cloud_firestore_platform_interface:
     dependency: transitive
     description:
       name: cloud_firestore_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.1.1"
+    version: "5.1.2"
   cloud_firestore_web:
     dependency: transitive
     description:
       name: cloud_firestore_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   collection:
     dependency: transitive
     description:
@@ -140,7 +140,7 @@ packages:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "1.3.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -196,7 +196,7 @@ packages:
     source: hosted
     version: "0.3.3"
   flutter_svg:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_svg
       url: "https://pub.dartlang.org"
@@ -261,13 +261,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
-  localstorage:
-    dependency: "direct main"
-    description:
-      name: localstorage
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.0+1"
   logging:
     dependency: transitive
     description:
@@ -409,7 +402,7 @@ packages:
     source: hosted
     version: "4.2.1"
   provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: provider
       url: "https://pub.dartlang.org"

@@ -14,18 +14,8 @@ abstract class FirebaseCollection {
 
 abstract class FirebaseField {
   static const KEYWORD = 'keyword';
-}
-
-abstract class TabBarOptions {
-  static const RATE = _Paths.RATE;
-  static const MAX_TUITION = _Paths.MAX_TUITION;
-  static const MIN_TUITION = _Paths.MIN_TUITION;
-  static const NATIONAL_UNIVERSITY = _Paths.NATIONAL_UNIVERSITY;
-}
-
-abstract class _Paths {
   static const RATE = 'rate';
   static const MAX_TUITION = 'maxTuition';
-  static const NATIONAL_UNIVERSITY = 'isNationalUniversity';
-  static const MIN_TUITION = 'minTuition';
+  static const MIN_TUITION = 'isNationalUniversity';
+  static const NATIONAL_UNIVERSITY = 'minTuition';
 }

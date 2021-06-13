@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:university_helper/app/theme/color_theme.dart';
-import 'package:university_helper/app/theme/text_theme.dart';
+import 'package:university_helper/app/utils/theme/color_theme.dart';
+import 'package:university_helper/app/utils/theme/text_theme.dart';
 
 import '../controllers/splash_screen_controller.dart';
 

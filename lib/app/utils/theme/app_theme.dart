@@ -59,7 +59,7 @@ final appThemeData = {
     primaryColor: primaryWhite,
     accentColor: darkColor,
     iconTheme: IconThemeData(
-      color: Colors.black,
+      color: Colors.grey[700],
     ),
     appBarTheme: AppBarTheme(
       color: Colors.white,

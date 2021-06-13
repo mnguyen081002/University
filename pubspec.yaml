@@ -84,6 +84,10 @@ flutter:
        - asset: assets/fonts/muli/Muli.ttf
        - asset: assets/fonts/muli/Muli-Bold.ttf
          weight: 700
+   - family: RobotoSlab
+     fonts:
+       - asset: assets/fonts/RobotoSlab.ttf
+         weight: 700
 
 
   #   - family: Trajan Pro

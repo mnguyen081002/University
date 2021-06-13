@@ -21,26 +21,19 @@ class FirebaseService with PrintLogMixin {
 
   Future fetchData({required int count, required String orderBy}) async {
     if (_lastDocs == null) {
-      if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
+      if (orderBy != FirebaseField.NATIONAL_UNIVERSITY) {
         data =
             await dataRef.orderBy(orderBy, descending: true).limit(count).get();
       } else {
         data = await dataRef.where(orderBy, isEqualTo: true).get();
       }
-    } else if (orderBy != TabBarOptions.NATIONAL_UNIVERSITY) {
+    } else if (orderBy != FirebaseField.NATIONAL_UNIVERSITY) {
       data = await dataRef
           .orderBy(orderBy, descending: true)
           .startAfterDocument(_lastDocs!)
           .limit(3)
           .get();
     }
-
-    // if ((data.docs.isEmpty || data == null) && _listUniversity.isNotEmpty) {
-    //   isReachedEnd.value = true;
-    //   Get.snackbar('Warning', 'Đã hết trường Đại học',
-    //       snackPosition: SnackPosition.BOTTOM);
-    // }
-
     _lastDocs = await data.docs.last;
   }
 

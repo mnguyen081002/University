@@ -5,7 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'app/global_widgets/search/search_shared_preferences.dart';
 import 'app/modules/detail/detail_screen.dart';
 import 'app/routes/app_pages.dart';
-import 'app/theme/app_theme.dart';
+import 'app/utils/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

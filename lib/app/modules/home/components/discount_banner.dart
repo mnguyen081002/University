@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const String bannerUrl =
+    'https://s3-ap-southeast-1.amazonaws.com/webikidsmontessorieduvnprod/wp-content/uploads/2020/09/04015854/le-khai-giang.jpg';
+
 class DiscountBanner extends StatelessWidget {
   const DiscountBanner({
     Key? key,
@@ -16,19 +19,9 @@ class DiscountBanner extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color(0xFF4A3298),
         borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text.rich(
-        TextSpan(
-          style: TextStyle(color: Colors.white),
-          children: [
-            TextSpan(text: "A Summer Surpise\n"),
-            TextSpan(
-              text: "Cashback 20%",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+        image: DecorationImage(
+          image: NetworkImage(bannerUrl),
+          fit: BoxFit.cover,
         ),
       ),
     );

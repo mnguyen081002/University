@@ -7,7 +7,7 @@ class Categories extends StatelessWidget {
       {"icon": "assets/icons/Flash Icon.svg", "text": "Flash Deal"},
       {"icon": "assets/icons/Bill Icon.svg", "text": "Bill"},
       {"icon": "assets/icons/Game Icon.svg", "text": "Game"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Daily Gift"},
+      {"icon": "assets/icons/Gift Icon.svg", "text": "Tính điểm tốt nghiệp"},
     ];
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30),
@@ -40,9 +40,9 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: SizedBox(
+    return Expanded(
+      child: GestureDetector(
+        onTap: press,
         child: Column(
           children: [
             Container(

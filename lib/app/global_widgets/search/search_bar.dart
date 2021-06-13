@@ -18,7 +18,7 @@ class SearchBar extends StatelessWidget {
         delegate: UniversitySearchDelegate(),
       ),
       child: Container(
-        height: 40,
+        height: 50,
         width: size.width - kActionSize,
         child: TextField(
           enabled: false,

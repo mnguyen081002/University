@@ -112,7 +112,8 @@ class PopularProducts extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(title: "Popular Products", press: () {}),
+          child:
+              SectionTitle(title: "Các Trường được đánh giá cao", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(
@@ -122,6 +123,7 @@ class PopularProducts extends StatelessWidget {
               ...List.generate(
                 demoProducts.length,
                 (index) {
+                  //Todo Implement data from Firebase
                   if (demoProducts[index].isPopular)
                     return ProductCard(product: demoProducts[index]);
 

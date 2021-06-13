@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:university_helper/app/global_widgets/search/search_appbar.dart';
 
 import 'categories.dart';
 import 'discount_banner.dart';
@@ -12,12 +13,14 @@ class Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 30),
+            SearchAppBar(hintText: 'Search'),
+            SizedBox(height: 10),
             DiscountBanner(),
             SizedBox(height: 20),
             Categories(),
             SizedBox(height: 20),
             SpecialOffers(),
+            SizedBox(height: 20),
             PopularProducts(),
           ],
         ),

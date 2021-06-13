@@ -9,27 +9,30 @@ class SearchAppBar extends StatelessWidget {
   final String hintText;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SearchBar(hintText: hintText),
-        TextButton(
-          onPressed: () {},
-          child: Row(
-            children: [
-              Icon(
-                Icons.filter_list_alt,
-                color: Theme.of(context).accentColor,
-              ),
-              Text(
-                'Lọc',
-                style: TextStyle(
+    return Padding(
+      padding: EdgeInsets.all(15),
+      child: Row(
+        children: [
+          SearchBar(hintText: hintText),
+          TextButton(
+            onPressed: () {},
+            child: Row(
+              children: [
+                Icon(
+                  Icons.filter_list_alt,
                   color: Theme.of(context).accentColor,
                 ),
-              ),
-            ],
-          ),
-        )
-      ],
+                Text(
+                  'Lọc',
+                  style: TextStyle(
+                    color: Theme.of(context).accentColor,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

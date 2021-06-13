@@ -14,7 +14,6 @@ class SearchScreen extends GetView<SearchScreenController> {
     return SafeArea(
       child: GetBuilder<SearchScreenController>(
         builder: (builder) {
-          print('GetBuilder');
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Theme.of(context).primaryColor,

@@ -20,12 +20,12 @@ class SearchAppBar extends StatelessWidget {
               children: [
                 Icon(
                   Icons.filter_list_alt,
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).iconTheme.color,
                 ),
                 Text(
                   'Lọc',
                   style: TextStyle(
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).iconTheme.color,
                   ),
                 ),
               ],

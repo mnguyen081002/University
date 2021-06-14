@@ -17,22 +17,24 @@ class PopularList extends GetView<PopularDetailController> {
       child: GetBuilder<PopularDetailController>(
         builder: (builder) {
           return Obx(
-            () => ListView.builder(
-              primary: false,
-              shrinkWrap: true,
-              itemCount: builder.list.length,
-              itemBuilder: (context, index) {
-                return builder.list[index] is MajorsF
-                    ? MajorCard(
-                        description: '',
-                        title: builder.list[index].name,
-                      )
-                    : UniversityCard(
-                        isSearchByMajors: true,
-                        dataUniversity: builder.list[index],
-                      );
-              },
-            ),
+            () => builder.isLoading.value
+                ? Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    primary: false,
+                    shrinkWrap: true,
+                    itemCount: builder.list.length,
+                    itemBuilder: (context, index) {
+                      return builder.list[index] is MajorsF
+                          ? MajorCard(
+                              description: '',
+                              title: builder.list[index].name,
+                            )
+                          : UniversityCard(
+                              isSearchByMajors: true,
+                              dataUniversity: builder.list[index],
+                            );
+                    },
+                  ),
           );
         },
       ),

@@ -7,16 +7,24 @@ enum Popular {
 }
 
 class PopularDetailController extends GetxController {
-  var _list = [].obs;
+  var _list = [];
   get list => _list;
+  var isLoading = false.obs;
+  var isLoadMore = false.obs;
   FirebaseService firebaseService = FirebaseService();
   Future fetchAndSetMajorData() async {
+    isLoading.value = true;
+
     _list.addAll(await firebaseService.fetchMajorData(kindOfMajor: Major.Hot));
     print(_list.length);
+    isLoading.value = false;
   }
 
   Future fetchAndSetUniversityData() async {
+    isLoading.value = true;
+
     _list.addAll(await firebaseService.fetchUniversityData(orderBy: 'Hot'));
+    isLoading.value = false;
   }
 
   @override

@@ -9,7 +9,7 @@ class Majors {
     required this.name,
     required this.studyTime,
   });
-  static fromJson(dynamic jsonData) {
+  factory Majors.fromJson(dynamic jsonData) {
     return Majors(
       grade: jsonData['grade'],
       idMajors: jsonData['idMajors'],
@@ -17,13 +17,20 @@ class Majors {
       studyTime: jsonData['studyTime'],
     );
   }
-
   static fromMap(Map<String, dynamic> mapData) {
     return Majors(
       grade: mapData['grade'],
       idMajors: mapData['idMajors'],
       name: mapData['nameMajors'],
       studyTime: mapData['studyTime'],
+    );
+  }
+
+  static fromFirebase(dynamic data) {
+    return List<Majors>.from(
+      data['listMajors'].map(
+        (i) => Majors.fromJson(i),
+      ),
     );
   }
 }

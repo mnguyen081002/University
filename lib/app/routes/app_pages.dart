@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:university_helper/app/modules/home/bindings/home_screen_bindings.dart';
 import 'package:university_helper/app/modules/home/home_screen.dart';
-import 'package:university_helper/app/modules/popular_university_detail/bindings/popular_detail_screen_binding.dart';
-import 'package:university_helper/app/modules/popular_university_detail/popular_detail_screen.dart';
+import 'package:university_helper/app/modules/popular/bindings/popular_detail_screen_binding.dart';
+import 'package:university_helper/app/modules/popular/popular_detail_screen.dart';
 import 'package:university_helper/app/modules/search/bindings/search_screen_binding.dart';
 import 'package:university_helper/app/modules/search/search_screen.dart';
 import 'package:university_helper/app/modules/splash/bindings/splash_screen_binding.dart';

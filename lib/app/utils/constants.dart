@@ -8,8 +8,9 @@ const kTabBarOptions = [
 ];
 const MAIN_COLLECTION = 'ListUniversity';
 
-abstract class FirebaseCollection {
-  static const MAIN_COLLECTION = 'ListUniversity';
+class FirebaseCollection {
+  static const UNIVERSITY = 'ListUniversity';
+  static const MAJOR = 'listMajors';
 }
 
 abstract class FirebaseField {

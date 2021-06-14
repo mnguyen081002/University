@@ -8,14 +8,15 @@ class PopularAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 100,
+      expandedHeight: 130,
       pinned: true,
-      title: Text('Các ngành hot'),
       flexibleSpace: FlexibleSpaceBar(
         background: Image.network(
           'https://www.niche.com/blog/wp-content/uploads/2017/01/list-of-majors-1910px.png',
           fit: BoxFit.cover,
         ),
+        title: Text('Các ngành hot'),
+        centerTitle: true,
       ),
     );
   }

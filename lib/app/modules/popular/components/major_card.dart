@@ -4,8 +4,11 @@ import 'package:university_helper/app/utils/theme/text_theme.dart';
 class MajorCard extends StatelessWidget {
   const MajorCard({
     Key? key,
+    required this.title,
+    required this.description,
   }) : super(key: key);
-
+  final String title;
+  final String description;
   @override
   Widget build(BuildContext context) {
     return Container(

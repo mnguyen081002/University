@@ -33,14 +33,17 @@ class SearchScreenController extends GetxController
       _listUniversity.firstWhere((element) => element.id == id);
 
   Future<List<University>> searchUniversity(String? query) async {
-    return await firebaseService.searchUniversity(query);
+    return University.fromFirebase(await firebaseService.search(
+      query: query!,
+      collection: FirebaseCollection.UNIVERSITY,
+    ));
   }
 
   Future fetchAndSetData({int count = 3, required String orderBy}) async {
     isScrollLoading.value = true;
     isLoading.value = true;
     try {
-      final list = await firebaseService.fetchAndSetData(orderBy: orderBy);
+      final list = await firebaseService.fetchUniversityData(orderBy: orderBy);
       _listUniversity.addAll(list);
       if ((firebaseService.data.docs.isEmpty || firebaseService.data == null) &&
           _listUniversity.isNotEmpty) {

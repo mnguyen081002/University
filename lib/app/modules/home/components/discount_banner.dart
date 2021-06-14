@@ -17,7 +17,7 @@ class DiscountBanner extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.symmetric(),
       decoration: BoxDecoration(
-        color: Color(0xFF4A3298),
+        color: Colors.grey,
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
           image: NetworkImage(bannerUrl),

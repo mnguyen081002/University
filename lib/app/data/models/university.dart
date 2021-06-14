@@ -71,7 +71,7 @@ class University {
     );
   }
 
-  static fromDatabase(List<dynamic> listData) {
+  static fromFirebase(List<dynamic> listData) {
     return List<University>.from(
         listData.map((jsonData) => University.fromJson(jsonData)));
   }

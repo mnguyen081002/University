@@ -4,8 +4,8 @@ import 'package:university_helper/app/data/models/university.dart';
 import 'package:university_helper/app/utils/size_config.dart';
 import 'package:university_helper/app/utils/theme/text_theme.dart';
 
-class UniversityCard extends StatelessWidget {
-  const UniversityCard({
+class CustomCard extends StatelessWidget {
+  const CustomCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,

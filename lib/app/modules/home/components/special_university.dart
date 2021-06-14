@@ -1,5 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:university_helper/app/modules/popular/controllers/popular_detail_controller.dart';
+import 'package:university_helper/app/routes/app_pages.dart';
 import 'package:university_helper/app/utils/size_config.dart';
 
 import 'section_title.dart';
@@ -31,7 +34,9 @@ class SpecialOffers extends StatelessWidget {
                     'https://www.dictumtranslationsolutions.com/wp-content/uploads/2018/08/Tecnologias-de-la-informaci%C3%B3n.png',
                 category: "Các ngành hot",
                 numOfBrands: 18,
-                press: () {},
+                press: () {
+                  Get.toNamed(Routes.POPULAR_DETAIL, arguments: Popular.Major);
+                },
               ),
               SpecialOfferCard(
                 image: 'https://pbs.twimg.com/media/EuVasS3XAAAOMRg.jpg',

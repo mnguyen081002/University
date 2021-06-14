@@ -26,7 +26,7 @@ class FirebaseService with PrintLogMixin {
     return listQuery.docs;
   }
 
-  Future fetchUniversityData({int count = 3, required String orderBy}) async {
+  Future fetchUniversityData({int count = 6, required String orderBy}) async {
     final dataRef =
         FirebaseFirestore.instance.collection(FirebaseCollection.UNIVERSITY);
     if (_lastDocs == null) {
@@ -47,28 +47,32 @@ class FirebaseService with PrintLogMixin {
     }
     //set last doc để chia page
     _lastDocs = await data.docs.last;
-
+    final listUniversity = University.fromFirebase(data.docs);
     //reset data
     data = null;
-    return University.fromFirebase(data.docs);
-    ;
+    return listUniversity;
   }
 
-  Future fetchMajorData({required Major kindOfMajor, int count = 6}) async {
+  Future fetchMajorData(
+      {required Major kindOfMajor, int count = 7, bool hot = false}) async {
     final dataRef =
         FirebaseFirestore.instance.collection(FirebaseCollection.MAJOR);
     if (_lastDocs == null) {
-      await dataRef.limit(count).get();
+      if (!hot) {
+        data = await dataRef.limit(count).get();
+      } else {
+        data = await dataRef.limit(count).where('hot', isEqualTo: true).get();
+      }
     } else {
       //load more
       data = await dataRef.startAfterDocument(_lastDocs!).limit(3).get();
     }
     //set last doc để chia page
     _lastDocs = await data.docs.last;
-
+    final listMajor = Majors.fromFirebase(data.docs);
     //reset data
     data = null;
-    return Majors.fromFirebase(data.docs);
+    return listMajor;
   }
 
   void reset() {

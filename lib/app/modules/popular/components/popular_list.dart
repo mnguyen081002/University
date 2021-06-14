@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:university_helper/app/data/models/majors.dart';
 import 'package:university_helper/app/modules/popular/controllers/popular_detail_controller.dart';
+import 'package:university_helper/app/modules/search/components/card/university_card.dart';
 
 import 'major_card.dart';
 
@@ -14,17 +16,23 @@ class PopularList extends GetView<PopularDetailController> {
     return SliverToBoxAdapter(
       child: GetBuilder<PopularDetailController>(
         builder: (builder) {
-          final listMajor = builder.list;
-          return ListView.builder(
-            primary: false,
-            shrinkWrap: true,
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              return MajorCard(
-                description: listMajor[index].description,
-                title: listMajor[index].name,
-              );
-            },
+          return Obx(
+            () => ListView.builder(
+              primary: false,
+              shrinkWrap: true,
+              itemCount: builder.list.length,
+              itemBuilder: (context, index) {
+                return builder.list[index] is MajorsF
+                    ? MajorCard(
+                        description: '',
+                        title: builder.list[index].name,
+                      )
+                    : UniversityCard(
+                        isSearchByMajors: true,
+                        dataUniversity: builder.list[index],
+                      );
+              },
+            ),
           );
         },
       ),

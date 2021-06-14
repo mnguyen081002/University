@@ -11,7 +11,7 @@ import 'package:university_helper/app/modules/splash/views/splash_screen_view.da
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.SEARCH;
 
   static final routes = [
     GetPage(

@@ -53,8 +53,11 @@ class FirebaseService with PrintLogMixin {
     return listUniversity;
   }
 
-  Future fetchMajorData(
-      {required Major kindOfMajor, int count = 7, bool hot = false}) async {
+  Future fetchMajorData({
+    required Major kindOfMajor,
+    int count = 3,
+    bool hot = false,
+  }) async {
     final dataRef =
         FirebaseFirestore.instance.collection(FirebaseCollection.MAJOR);
     if (_lastDocs == null) {

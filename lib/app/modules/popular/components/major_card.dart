@@ -42,7 +42,7 @@ class MajorCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Ngành Công Nghệ Thông Tin',
+                      title,
                       style: kTitleTextStyle,
                     ),
                     SizedBox(height: 10),

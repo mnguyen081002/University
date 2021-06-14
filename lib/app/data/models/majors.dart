@@ -27,10 +27,15 @@ class Majors {
   }
 
   static fromFirebase(dynamic data) {
-    return List<Majors>.from(
-      data['listMajors'].map(
-        (i) => Majors.fromJson(i),
+    return List<MajorsF>.from(
+      data.map(
+        (i) => MajorsF(name: i['majors']),
       ),
     );
   }
+}
+
+class MajorsF {
+  final String name;
+  MajorsF({required this.name});
 }

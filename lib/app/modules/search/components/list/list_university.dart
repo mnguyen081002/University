@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/app/modules/search/controllers/search_controller.dart';
 
-import '../card/custom_card.dart';
+import '../card/university_card.dart';
 
 class ListUniversity extends GetView<SearchScreenController> {
   const ListUniversity({
@@ -30,7 +30,7 @@ class ListUniversity extends GetView<SearchScreenController> {
                       padding: EdgeInsets.fromLTRB(10, 50, 10, 40),
                       itemCount: _.listUniversity.length,
                       itemBuilder: (context, index) {
-                        return CustomCard(
+                        return UniversityCard(
                           dataUniversity: _.listUniversity[index],
                           isSearchByMajors: _.isSearchByMajors.value,
                         );

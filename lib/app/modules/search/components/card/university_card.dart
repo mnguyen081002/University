@@ -8,8 +8,8 @@ import 'components/shortcut_detail.dart';
 import 'components/tag_university.dart';
 import 'components/university_img.dart';
 
-class CustomCard extends StatelessWidget {
-  const CustomCard({
+class UniversityCard extends StatelessWidget {
+  const UniversityCard({
     Key? key,
     required this.isSearchByMajors,
     required this.dataUniversity,

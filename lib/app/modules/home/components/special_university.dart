@@ -33,7 +33,7 @@ class SpecialOffers extends StatelessWidget {
                 image:
                     'https://www.dictumtranslationsolutions.com/wp-content/uploads/2018/08/Tecnologias-de-la-informaci%C3%B3n.png',
                 category: "Các ngành hot",
-                numOfBrands: 18,
+                numOfBrands: 14,
                 press: () {
                   Get.toNamed(Routes.POPULAR_DETAIL, arguments: Popular.Major);
                 },
@@ -41,7 +41,7 @@ class SpecialOffers extends StatelessWidget {
               SpecialOfferCard(
                 image: 'https://pbs.twimg.com/media/EuVasS3XAAAOMRg.jpg',
                 category: "Các trường hot",
-                numOfBrands: 24,
+                numOfBrands: 17,
                 press: () {
                   Get.toNamed(Routes.POPULAR_DETAIL,
                       arguments: Popular.University);

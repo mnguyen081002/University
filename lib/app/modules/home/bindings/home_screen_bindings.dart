@@ -4,8 +4,8 @@ import 'package:university_helper/app/modules/home/controllers/home_screen_contr
 class HomeScreenBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<SearchScreenController>(
-      () => SearchScreenController(),
+    Get.lazyPut<SearchScreen>(
+      () => SearchScreen(),
     );
   }
 }

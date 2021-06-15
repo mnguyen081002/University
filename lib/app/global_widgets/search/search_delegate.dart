@@ -55,6 +55,7 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
   Widget buildSuggestions(BuildContext context) {
     final name = SearchSharedPreferences.getHistory();
     print(query.capitalize!.trimLeft());
+    Get.lazyPut(() => SearchScreenController());
     return FutureBuilder(
       future: Get.find<SearchScreenController>()
           .searchUniversity(query.capitalize!.trimLeft()),

@@ -28,14 +28,19 @@ class Majors {
 
   static fromFirebase(dynamic data) {
     return List<MajorsF>.from(
-      data.map(
-        (i) => MajorsF(name: i['majors']),
-      ),
+      data.map((i) {
+        print(i['imageUrl']);
+        return MajorsF(
+          name: i['majors'],
+          imageUrl: i['imageUrl'],
+        );
+      }),
     );
   }
 }
 
 class MajorsF {
   final String name;
-  MajorsF({required this.name});
+  final String imageUrl;
+  MajorsF({required this.name, this.imageUrl = ''});
 }

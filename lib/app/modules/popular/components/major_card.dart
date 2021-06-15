@@ -6,9 +6,11 @@ class MajorCard extends StatelessWidget {
     Key? key,
     required this.title,
     required this.description,
+    required this.imageUrl,
   }) : super(key: key);
   final String title;
   final String description;
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,8 +31,7 @@ class MajorCard extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://www.dictumtranslationsolutions.com/wp-content/uploads/2018/08/Tecnologias-de-la-informaci%C3%B3n.png'),
+                    image: NetworkImage(imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),

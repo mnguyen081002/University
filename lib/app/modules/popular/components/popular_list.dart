@@ -17,22 +17,37 @@ class PopularList extends GetView<PopularDetailController> {
       child: GetBuilder<PopularDetailController>(
         builder: (builder) {
           return Obx(
-            () => ListView.builder(
-              primary: false,
-              shrinkWrap: true,
-              itemCount: builder.list.length,
-              itemBuilder: (context, index) {
-                return builder.list[index] is MajorsF
-                    ? MajorCard(
-                        description: '',
-                        title: builder.list[index].name,
-                      )
-                    : UniversityCard(
-                        isSearchByMajors: true,
-                        dataUniversity: builder.list[index],
-                      );
-              },
-            ),
+            () => builder.list.isEmpty
+                ? Center(
+                    child: builder.isLoading.value
+                        ? CircularProgressIndicator()
+                        : Text('Có lỗi xảy ra :('),
+                  )
+                : Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      if (builder.isLoadMore.value) CircularProgressIndicator(),
+                      ListView.builder(
+                        controller: builder.scrollCtl,
+                        primary: false,
+                        shrinkWrap: true,
+                        itemCount: builder.list.length,
+                        itemBuilder: (context, index) {
+                          return builder.list[index] is MajorsF
+                              ? MajorCard(
+                                  description: '',
+                                  title: builder.list[index].name,
+                                  imageUrl: builder.list[index].imageUrl != ''
+                                      ? builder.list[index].imageUrl
+                                      : 'https://lh3.googleusercontent.com/proxy/MwuBAAJyxW3_iRblmsFvRfN0DncluDQX4rMlPJ3MYp3S9jQPp5vLuXHVSnTwjyf0tCseSuq09qOXuK6XRevRRUbFhObwlJp9GL4WA7VFFQ')
+                              : UniversityCard(
+                                  isSearchByMajors: true,
+                                  dataUniversity: builder.list[index],
+                                );
+                        },
+                      ),
+                    ],
+                  ),
           );
         },
       ),

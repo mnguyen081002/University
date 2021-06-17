@@ -1,16 +1,16 @@
-class Majors {
+class MajorsF {
   final String idMajors;
   final String name;
   final String studyTime;
   final List grade;
-  Majors({
+  MajorsF({
     required this.grade,
     required this.idMajors,
     required this.name,
     required this.studyTime,
   });
-  factory Majors.fromJson(dynamic jsonData) {
-    return Majors(
+  factory MajorsF.fromJson(dynamic jsonData) {
+    return MajorsF(
       grade: jsonData['grade'],
       idMajors: jsonData['idMajors'],
       name: jsonData['nameMajors'],
@@ -18,29 +18,43 @@ class Majors {
     );
   }
   static fromMap(Map<String, dynamic> mapData) {
-    return Majors(
+    return MajorsF(
       grade: mapData['grade'],
       idMajors: mapData['idMajors'],
       name: mapData['nameMajors'],
       studyTime: mapData['studyTime'],
     );
   }
-
-  static fromFirebase(dynamic data) {
-    return List<MajorsF>.from(
-      data.map((i) {
-        print(i['imageUrl']);
-        return MajorsF(
-          name: i['majors'],
-          imageUrl: i['imageUrl'],
-        );
-      }),
-    );
-  }
 }
 
-class MajorsF {
-  final String name;
+class Majors {
+  final String codeHtml;
   final String imageUrl;
-  MajorsF({required this.name, this.imageUrl = ''});
+  final String description;
+  final String linkRoot;
+  final String name;
+  final bool isHot;
+
+  Majors({
+    required this.codeHtml,
+    required this.imageUrl,
+    required this.isHot,gi
+    required this.name,
+    required this.linkRoot,
+    required this.description,
+  });
+
+  factory Majors.fromJson(dynamic json) {
+    return Majors(
+      codeHtml: json['codeHtml'],
+      imageUrl: json['imageUrl'],
+      isHot: json['isHot'],
+      name: json['majorName'],
+      linkRoot: json['linkRoot'],
+      description: json['description'],
+    );
+  }
+  static fromFirebase(List data) {
+    return data.map((major) => Majors.fromJson(major)).toList();
+  }
 }

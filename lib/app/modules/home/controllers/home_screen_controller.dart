@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:university_helper/app/services/firebase_service.dart';
 import 'package:university_helper/app/utils/constants.dart';
 
-class SearchScreen extends GetxController {
+class HomeScreenController extends GetxController {
   FirebaseService firebaseService = FirebaseService();
   var _listUniversity = [].obs;
   get listUniversity => _listUniversity;

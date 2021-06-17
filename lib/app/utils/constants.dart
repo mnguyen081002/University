@@ -10,7 +10,7 @@ const MAIN_COLLECTION = 'ListUniversity';
 
 class FirebaseCollection {
   static const UNIVERSITY = 'ListUniversity';
-  static const MAJOR = 'listMajors';
+  static const MAJOR = 'ListMajor';
 }
 
 abstract class FirebaseField {

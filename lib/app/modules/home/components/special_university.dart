@@ -1,11 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/modules/popular/controllers/popular_detail_controller.dart';
+import 'package:university_helper/app/modules/popular/controllers/popular_screen_controller.dart';
 import 'package:university_helper/app/routes/app_pages.dart';
 import 'package:university_helper/app/utils/size_config.dart';
 
 import 'section_title.dart';
+
+List<Map<String, Object>> _args = [
+  {
+    'popular': Popular.Major,
+    'title': 'Các ngành hot',
+    'urlAppbar':
+        'https://www.niche.com/blog/wp-content/uploads/2017/01/list-of-majors-1910px.png',
+  },
+  {
+    'popular': Popular.University,
+    'title': 'Các trường hot',
+    'urlAppbar':
+        'https://www.niche.com/blog/wp-content/uploads/2017/01/list-of-majors-1910px.png',
+  }
+];
 
 class SpecialOffers extends StatelessWidget {
   const SpecialOffers({
@@ -35,7 +50,7 @@ class SpecialOffers extends StatelessWidget {
                 category: "Các ngành hot",
                 numOfBrands: 14,
                 press: () {
-                  Get.toNamed(Routes.POPULAR_DETAIL, arguments: Popular.Major);
+                  Get.toNamed(Routes.POPULAR_DETAIL, arguments: _args[0]);
                 },
               ),
               SpecialOfferCard(
@@ -43,8 +58,7 @@ class SpecialOffers extends StatelessWidget {
                 category: "Các trường hot",
                 numOfBrands: 17,
                 press: () {
-                  Get.toNamed(Routes.POPULAR_DETAIL,
-                      arguments: Popular.University);
+                  Get.toNamed(Routes.POPULAR_DETAIL, arguments: _args[1]);
                 },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),

@@ -75,6 +75,7 @@ class SearchScreenController extends GetxController
 
       if (scrollPosition.pixels == scrollPosition.maxScrollExtent)
         fetchAndSetData(orderBy: kTabBarOptions[selectedIndex.value]);
+
       if (scrollPosition.pixels <= 130) {
         scrollPositionController.value = -(scrollPosition.pixels / 2);
       }

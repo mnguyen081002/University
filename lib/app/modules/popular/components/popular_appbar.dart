@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:university_helper/app/modules/popular/controllers/popular_screen_controller.dart';
 
 class PopularAppbar extends StatelessWidget {
   const PopularAppbar({
@@ -7,15 +9,16 @@ class PopularAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<PopularScreenController>();
     return SliverAppBar(
       expandedHeight: 130,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         background: Image.network(
-          'https://www.niche.com/blog/wp-content/uploads/2017/01/list-of-majors-1910px.png',
+          controller.urlAppbar,
           fit: BoxFit.cover,
         ),
-        title: Text('Các ngành hot'),
+        title: Text(controller.title),
         centerTitle: true,
       ),
     );

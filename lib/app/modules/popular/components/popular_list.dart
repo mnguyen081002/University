@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/app/data/models/majors.dart';
-import 'package:university_helper/app/modules/popular/controllers/popular_detail_controller.dart';
+import 'package:university_helper/app/modules/popular/controllers/popular_screen_controller.dart';
+import 'package:university_helper/app/modules/popular_detail/popular_detail_screen.dart';
 import 'package:university_helper/app/modules/search/components/card/university_card.dart';
 
 import 'major_card.dart';
 
-class PopularList extends GetView<PopularDetailController> {
+class PopularList extends GetView<PopularScreenController> {
   const PopularList({
     Key? key,
   }) : super(key: key);
+  void toNewScreen(item) {
+    Get.to(
+      PopularDetailScreen(),
+      arguments: {
+        'imageUrl': item.imageUrl,
+        'name': item.name,
+        'linkRoot': item.linkRoot,
+        'codeHtml': item.codeHtml,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: GetBuilder<PopularDetailController>(
+      child: GetBuilder<PopularScreenController>(
         builder: (builder) {
           return Obx(
             () => builder.list.isEmpty
@@ -33,13 +45,13 @@ class PopularList extends GetView<PopularDetailController> {
                         shrinkWrap: true,
                         itemCount: builder.list.length,
                         itemBuilder: (context, index) {
-                          return builder.list[index] is MajorsF
+                          return builder.list[index] is Majors
                               ? MajorCard(
-                                  description: '',
+                                  description: builder.list[index].description,
                                   title: builder.list[index].name,
-                                  imageUrl: builder.list[index].imageUrl != ''
-                                      ? builder.list[index].imageUrl
-                                      : 'https://lh3.googleusercontent.com/proxy/MwuBAAJyxW3_iRblmsFvRfN0DncluDQX4rMlPJ3MYp3S9jQPp5vLuXHVSnTwjyf0tCseSuq09qOXuK6XRevRRUbFhObwlJp9GL4WA7VFFQ')
+                                  imageUrl: builder.list[index].imageUrl,
+                                  onTap: () => toNewScreen(builder.list[index]),
+                                )
                               : UniversityCard(
                                   isSearchByMajors: true,
                                   dataUniversity: builder.list[index],

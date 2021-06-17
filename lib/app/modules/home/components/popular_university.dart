@@ -18,7 +18,7 @@ class PopularProducts extends StatelessWidget {
               SectionTitle(title: "Các Trường được đánh giá cao", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        GetBuilder<SearchScreen>(
+        GetBuilder<HomeScreenController>(
           builder: (builder) {
             print(builder.listUniversity.length);
             return SingleChildScrollView(

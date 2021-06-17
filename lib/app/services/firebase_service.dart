@@ -29,6 +29,8 @@ class FirebaseService with PrintLogMixin {
   Future fetchUniversityData({int count = 6, required String orderBy}) async {
     final dataRef =
         FirebaseFirestore.instance.collection(FirebaseCollection.UNIVERSITY);
+    final a = await dataRef.doc().get();
+    print(a[0].id);
     if (_lastDocs == null) {
       //Nếu không phải đhqg thì chia page không thì fetch hết
       if (orderBy != FirebaseField.NATIONAL_UNIVERSITY) {
@@ -64,12 +66,13 @@ class FirebaseService with PrintLogMixin {
       if (!hot) {
         data = await dataRef.limit(count).get();
       } else {
-        data = await dataRef.limit(count).where('hot', isEqualTo: true).get();
+        data = await dataRef.limit(count).where('isHot', isEqualTo: true).get();
       }
     } else {
       //load more
       data = await dataRef.startAfterDocument(_lastDocs!).limit(3).get();
     }
+
     //set last doc để chia page
     _lastDocs = await data.docs.last;
     final listMajor = Majors.fromFirebase(data.docs);

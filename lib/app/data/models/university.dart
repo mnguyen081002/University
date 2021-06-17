@@ -4,7 +4,7 @@ import 'majors.dart';
 
 class University {
   final String imageUrl;
-  final List<Majors> listMajors;
+  final List<MajorsF> listMajors;
   final String formsOfTraining;
   final String name;
   final String idUniversity;
@@ -59,8 +59,8 @@ class University {
       formsOfTraining: jsonData['formsOfTraining'],
       idUniversity: jsonData['idUniversity'],
       isNationalUniversity: jsonData['isNationalUniversity'],
-      listMajors: List<Majors>.from(
-          jsonData['listMajors'].map((i) => Majors.fromJson(i))),
+      listMajors: List<MajorsF>.from(
+          jsonData['listMajors'].map((i) => MajorsF.fromJson(i))),
       location: jsonData['location'],
       maxTuition: jsonData['maxTuition'].toDouble(),
       minTuition: jsonData['minTuition'].toDouble(),

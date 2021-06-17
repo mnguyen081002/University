@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import 'package:university_helper/app/modules/popular/controllers/popular_detail_controller.dart';
+import 'package:university_helper/app/modules/popular/controllers/popular_screen_controller.dart';
 
 class PopularDetailScreenBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<PopularDetailController>(
-      () => PopularDetailController(),
+    Get.lazyPut<PopularScreenController>(
+      () => PopularScreenController(),
     );
   }
 }

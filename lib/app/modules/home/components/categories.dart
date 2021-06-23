@@ -7,8 +7,8 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
       {"icon": "assets/icons/analysis.svg", "text": "Chọn trường thích hợp"},
-      {"icon": "assets/icons/idea.svg", "text": "Bill"},
-      {"icon": "assets/icons/save.svg", "text": "Game"},
+      //{"icon": "assets/icons/idea.svg", "text": "Bill"},
+      //"icon": "assets/icons/save.svg", "text": "Game"},
       {"icon": "assets/icons/calculator.svg", "text": "Tính điểm tốt nghiệp"},
     ];
     return Padding(
@@ -51,7 +51,6 @@ class CategoryCard extends StatelessWidget {
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.grey[200]!),
               ),
               child: SvgPicture.asset(
                 icon,

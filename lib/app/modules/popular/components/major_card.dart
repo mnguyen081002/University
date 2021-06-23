@@ -19,10 +19,18 @@ class MajorCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.fromLTRB(15, 0, 15, 10),
-        height: 360,
+        height: 300,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(15),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: Offset(1, 3), // changes position of shadow
+            ),
+          ],
+          borderRadius: BorderRadius.circular(10),
         ),
         child: LayoutBuilder(
           builder: (context, builder) {
@@ -31,15 +39,15 @@ class MajorCard extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
                     ),
                     image: DecorationImage(
                       image: NetworkImage(imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
-                  height: builder.maxHeight * 0.6,
+                  height: builder.maxHeight * 0.5,
                 ),
                 Padding(
                   padding: EdgeInsets.all(15),
@@ -57,10 +65,13 @@ class MajorCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: Colors.grey[700]),
                       ),
-                      TextButton(
-                        onPressed: onTap,
-                        child: Text('Tìm hiểu thêm'),
-                      )
+                      Padding(
+                        padding: const EdgeInsets.only(top: 18),
+                        child: Text(
+                          'Tìm hiểu thêm',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ),
                     ],
                   ),
                 )

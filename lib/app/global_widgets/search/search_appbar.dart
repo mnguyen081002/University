@@ -15,23 +15,24 @@ class SearchAppBar extends StatelessWidget {
       child: Row(
         children: [
           SearchBar(hintText: hintText),
-          TextButton(
-            onPressed: () {},
-            child: Row(
-              children: [
-                Icon(
-                  Icons.filter_list_alt,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                Text(
-                  'Lọc',
-                  style: TextStyle(
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                ),
-              ],
-            ),
-          )
+          //Todo sub feature filter search
+          // TextButton(
+          //   onPressed: () {},
+          //   child: Row(
+          //     children: [
+          //       Icon(
+          //         Icons.filter_list_alt,
+          //         color: Theme.of(context).iconTheme.color,
+          //       ),
+          //       Text(
+          //         'Lọc',
+          //         style: TextStyle(
+          //           color: Theme.of(context).iconTheme.color,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          //)
         ],
       ),
     );

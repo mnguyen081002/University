@@ -50,7 +50,7 @@ class SpecialOffers extends StatelessWidget {
                 category: "Các ngành hot",
                 numOfBrands: 14,
                 press: () {
-                  Get.toNamed(Routes.POPULAR_DETAIL, arguments: _args[0]);
+                  Get.toNamed(Routes.POPULAR, arguments: _args[0]);
                 },
               ),
               SpecialOfferCard(
@@ -58,7 +58,7 @@ class SpecialOffers extends StatelessWidget {
                 category: "Các trường hot",
                 numOfBrands: 17,
                 press: () {
-                  Get.toNamed(Routes.POPULAR_DETAIL, arguments: _args[1]);
+                  Get.toNamed(Routes.POPULAR, arguments: _args[1]);
                 },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),

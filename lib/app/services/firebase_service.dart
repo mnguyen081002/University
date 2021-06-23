@@ -29,8 +29,6 @@ class FirebaseService with PrintLogMixin {
   Future fetchUniversityData({int count = 6, required String orderBy}) async {
     final dataRef =
         FirebaseFirestore.instance.collection(FirebaseCollection.UNIVERSITY);
-    final a = await dataRef.doc().get();
-    print(a[0].id);
     if (_lastDocs == null) {
       //Nếu không phải đhqg thì chia page không thì fetch hết
       if (orderBy != FirebaseField.NATIONAL_UNIVERSITY) {

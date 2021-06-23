@@ -11,6 +11,7 @@ import 'controllers/search_controller.dart';
 class SearchScreen extends GetView<SearchScreenController> {
   @override
   Widget build(BuildContext context) {
+    print('Search Screen - build');
     return SafeArea(
       child: GetBuilder<SearchScreenController>(
         builder: (builder) {

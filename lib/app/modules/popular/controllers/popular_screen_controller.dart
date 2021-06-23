@@ -8,10 +8,10 @@ enum Popular {
 }
 
 class PopularScreenController extends GetxController {
-  var _list = [].obs;
+  final _list = [].obs;
   get list => _list;
-  var isLoading = false.obs;
-  var isLoadMore = false.obs;
+  final isLoading = false.obs;
+  final isLoadMore = false.obs;
   late final String title;
   late final String urlAppbar;
   FirebaseService firebaseService = FirebaseService();
@@ -34,7 +34,7 @@ class PopularScreenController extends GetxController {
         hot: true,
       ),
     );
-    print(_list.length);
+    print(_list.length.toString() + ' item in list - PopularController');
   }
 
   Future fetchAndSetUniversityData() async {
@@ -42,14 +42,17 @@ class PopularScreenController extends GetxController {
   }
 
   Future fetchAndSetData(Popular popular) async {
+    isLoading.value = true;
+
     switch (popular) {
       case Popular.Major:
-        fetchAndSetMajorData();
+        await fetchAndSetMajorData();
         break;
       case Popular.University:
-        fetchAndSetUniversityData();
+        await fetchAndSetUniversityData();
         break;
     }
+    isLoading.value = false;
   }
 
   @override
@@ -57,17 +60,15 @@ class PopularScreenController extends GetxController {
     title = Get.arguments['title'];
     urlAppbar = Get.arguments['urlAppbar'];
     final popular = Get.arguments['popular'];
+
     fetchAndSetData(popular);
 
     super.onInit();
     scrollCtl = ScrollController();
-    print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
     scrollCtl.addListener(() {
       final scrollPosition = scrollCtl.position;
-      print('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
 
       if (scrollPosition.pixels == scrollPosition.maxScrollExtent) {
-        print('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
         fetchAndSetData(popular);
       }
     });

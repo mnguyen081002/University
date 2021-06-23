@@ -19,8 +19,8 @@ class PopularProducts extends StatelessWidget {
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         GetBuilder<HomeScreenController>(
+          //init: HomeScreenController(),
           builder: (builder) {
-            print(builder.listUniversity.length);
             return SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -32,7 +32,9 @@ class PopularProducts extends StatelessWidget {
                           university: builder.listUniversity[index]);
                     },
                   ),
-                  SizedBox(width: getProportionateScreenWidth(20)),
+                  SizedBox(
+                    width: getProportionateScreenWidth(20),
+                  ),
                 ],
               ),
             );

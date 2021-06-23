@@ -12,6 +12,8 @@ class ListUniversity extends GetView<SearchScreenController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SearchScreenController>(builder: (_) {
+      print(_.isLoading.value);
+
       return Obx(
         () {
           print(_.isLoading.value);

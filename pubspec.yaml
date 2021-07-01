@@ -32,13 +32,16 @@ dependencies:
   cloud_firestore: ^2.2.2
   get: ^4.1.4
   cached_network_image: ^3.0.0
-  webview_flutter: ^2.0.8
+  webview_flutter: ^2.0.9
   lottie: ^1.0.1
   google_fonts: ^2.1.0
   flutter_html: ^2.1.0
   shared_preferences: ^2.0.6
   flutter_svg: ^0.22.0
   animated_bottom_navigation_bar: ^0.3.2
+  animate_icons: ^2.0.0
+  flashy_tab_bar2: ^0.0.3
+  persistent_bottom_nav_bar: ^4.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

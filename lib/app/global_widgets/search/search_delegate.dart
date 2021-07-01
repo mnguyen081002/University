@@ -1,35 +1,38 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/app/data/models/university.dart';
 import 'package:university_helper/app/global_widgets/search/search_shared_preferences.dart';
 import 'package:university_helper/app/modules/detail/detail_screen.dart';
 import 'package:university_helper/app/modules/search/controllers/search_controller.dart';
+import 'package:university_helper/app/modules/suggest/controller/suggest_screen_controller.dart';
+import 'package:university_helper/app/utils/custom_search.dart';
 
 import 'list_suggest.dart';
 
-class UniversitySearchDelegate extends SearchDelegate<String> {
+class MySearchDelegate extends CustomSearchDelegate<dynamic> {
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: Icon(Icons.clear),
-        onPressed: () {
-          query = '';
-        },
-      )
-    ];
+    return query.isEmpty
+        ? [Container()]
+        : [
+            GestureDetector(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Icon(Icons.clear),
+              ),
+              onTap: () {
+                query = '';
+              },
+            ),
+          ];
   }
 
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
-      icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_arrow,
-        progress: transitionAnimation,
-      ),
-      onPressed: () {
-        close(context, '');
-      },
+      onPressed: () => Get.back(),
+      icon: Icon(CupertinoIcons.back),
     );
   }
 
@@ -57,7 +60,7 @@ class UniversitySearchDelegate extends SearchDelegate<String> {
     print(query.capitalize!.trimLeft());
     Get.lazyPut(() => SearchScreenController());
     return FutureBuilder(
-      future: Get.find<SearchScreenController>()
+      future: Get.find<SuggestScreenController>()
           .searchUniversity(query.capitalize!.trimLeft()),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         List suggestionList = [];

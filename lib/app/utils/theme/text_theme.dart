@@ -12,7 +12,7 @@ var kSubTextStyle = TextStyle(
   color: Colors.grey[700],
 );
 var kTitleTextStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 19,
   color: Colors.black,
   fontWeight: FontWeight.w600,
 );

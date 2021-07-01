@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:university_helper/app/data/models/university.dart';
+import 'package:university_helper/app/data/models/info.dart';
 import 'package:university_helper/app/utils/size_config.dart';
 import 'package:university_helper/app/utils/theme/text_theme.dart';
 
@@ -9,16 +9,16 @@ class CustomCard extends StatelessWidget {
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
-    required this.university,
+    required this.item,
   }) : super(key: key);
 
   final double width, aspectRetio;
-  final University university;
+  final Info item;
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: university.imageUrl,
+      imageUrl: item.imageUrl,
       imageBuilder: (context, imageProvider) {
         return Padding(
           padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
@@ -45,15 +45,15 @@ class CustomCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.grey,
                         image: DecorationImage(
-                          image: NetworkImage(university.imageUrl),
-                          fit: BoxFit.cover,
+                          image: NetworkImage(item.imageUrl),
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    university.name,
+                    item.name,
                     style: TextStyle(
                       fontFamily: 'RobotoSlab',
                       fontSize: 16,
@@ -61,17 +61,20 @@ class CustomCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        size: 13,
-                      ),
-                      Text(
-                        "${university.rate}",
-                        style: kSubTextStyle,
-                      ),
-                    ],
+                  Visibility(
+                    visible: item.rate != null,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          size: 13,
+                        ),
+                        Text(
+                          "${item.rate}",
+                          style: kSubTextStyle,
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

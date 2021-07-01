@@ -1,21 +1,21 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:university_helper/app/modules/popular/controllers/popular_screen_controller.dart';
 import 'package:university_helper/app/routes/app_pages.dart';
+import 'package:university_helper/app/utils/enum.dart';
 import 'package:university_helper/app/utils/size_config.dart';
 
 import 'section_title.dart';
 
 List<Map<String, Object>> _args = [
   {
-    'popular': Popular.Major,
+    'popular': Collection.Major,
     'title': 'Các ngành hot',
     'urlAppbar':
         'https://www.niche.com/blog/wp-content/uploads/2017/01/list-of-majors-1910px.png',
   },
   {
-    'popular': Popular.University,
+    'popular': Collection.University,
     'title': 'Các trường hot',
     'urlAppbar':
         'https://www.niche.com/blog/wp-content/uploads/2017/01/list-of-majors-1910px.png',

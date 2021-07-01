@@ -1,0 +1,4 @@
+enum Collection {
+  University,
+  Major,
+}

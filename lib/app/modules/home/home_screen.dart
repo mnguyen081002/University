@@ -7,7 +7,7 @@ import 'package:university_helper/app/utils/size_config.dart';
 import 'components/categories.dart';
 import 'components/discount_banner.dart';
 import 'components/popular_university.dart';
-import 'components/special_university.dart';
+import 'components/special_topic.dart';
 
 class HomeScreen extends GetView<HomeScreenController> {
   @override
@@ -17,7 +17,10 @@ class HomeScreen extends GetView<HomeScreenController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SearchAppBar(hintText: 'Tìm trường'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: SearchAppBar(hintText: 'Tìm trường'),
+            ),
             SizedBox(height: 10),
             DiscountBanner(),
             SizedBox(height: 20),

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:university_helper/app/data/models/university.dart';
 
-import '../components/rating_info.dart';
 import 'major_shortcut_detail.dart';
+import 'rating_info.dart';
 
 class ShortCutInfo extends StatelessWidget {
   const ShortCutInfo({

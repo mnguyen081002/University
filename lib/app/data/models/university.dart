@@ -1,12 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:university_helper/app/data/models/info.dart';
 
 import 'majors.dart';
 
-class University {
-  final String imageUrl;
+class University extends Info {
   final List<MajorsF> listMajors;
   final String formsOfTraining;
-  final String name;
   final String idUniversity;
   final double minTuition;
   final double maxTuition;
@@ -19,9 +18,10 @@ class University {
   double rate;
 
   University({
+    required name,
+    required imageUrl,
+    required description,
     this.id,
-    required this.name,
-    required this.imageUrl,
     this.rate = 10,
     required this.formsOfTraining,
     required this.idUniversity,
@@ -32,7 +32,11 @@ class University {
     required this.minTuition,
     required this.universityType,
     required this.universityUrl,
-  });
+  }) : super(
+          name: name,
+          imageUrl: imageUrl,
+          description: description,
+        );
 
   factory University.fromMap(Map<String, dynamic> mapData) {
     print(mapData['listMajors']);
@@ -49,6 +53,7 @@ class University {
       universityType: mapData['universityType'],
       universityUrl: mapData['universityUrl'],
       rate: mapData['rate'],
+      description: mapData['description'],
     );
   }
 
@@ -67,6 +72,7 @@ class University {
       universityType: jsonData['universityType'],
       universityUrl: jsonData['universityUrl'],
       rate: jsonData['rate'].toDouble(),
+      description: jsonData['description'],
       id: jsonData.id,
     );
   }

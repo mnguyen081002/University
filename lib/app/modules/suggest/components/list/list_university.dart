@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/app/modules/search/controllers/search_controller.dart';
+import 'package:university_helper/app/modules/suggest/controller/suggest_screen_controller.dart';
 
 import '../card/university_card.dart';
 
@@ -11,12 +12,10 @@ class ListUniversity extends GetView<SearchScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SearchScreenController>(builder: (_) {
-      print(_.isLoading.value);
-
+    return GetBuilder<SuggestScreenController>(builder: (_) {
       return Obx(
         () {
-          print(_.isLoading.value);
+          //print(_.isLoading.value.toString() + ' - search/components/list');
           return _.listUniversity.isEmpty
               ? Center(
                   child: _.isLoading.value

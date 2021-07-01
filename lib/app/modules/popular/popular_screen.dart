@@ -11,6 +11,7 @@ class PopularScreen extends GetView<PopularScreenController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PopularScreenController());
     return Scaffold(
       body: CustomScrollView(
         slivers: [

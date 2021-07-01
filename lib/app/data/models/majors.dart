@@ -1,8 +1,4 @@
-abstract class Major {
-  Major(this.name, this.imageUrl);
-  final String name;
-  final String imageUrl;
-}
+import 'info.dart';
 
 class MajorsF {
   final String idMajors;
@@ -36,22 +32,23 @@ class MajorsF {
   }
 }
 
-class Majors {
+class Majors extends Info {
   final String codeHtml;
-  final String imageUrl;
-  final String description;
   final String linkRoot;
-  final String name;
   final bool isHot;
 
   Majors({
-    required this.codeHtml,
-    required this.imageUrl,
-    required this.isHot,
-    required this.name,
+    required name,
+    required imageUrl,
+    required description,
     required this.linkRoot,
-    required this.description,
-  });
+    required this.codeHtml,
+    required this.isHot,
+  }) : super(
+          name: name,
+          imageUrl: imageUrl,
+          description: description,
+        );
 
   factory Majors.fromJson(dynamic json) {
     return Majors(

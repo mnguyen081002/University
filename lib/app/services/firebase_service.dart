@@ -57,6 +57,7 @@ class FirebaseService with PrintLogMixin {
     required Major kindOfMajor,
     int count = 3,
     bool hot = false,
+    String where = 'isHot',
   }) async {
     final dataRef =
         FirebaseFirestore.instance.collection(FirebaseCollection.MAJOR);
@@ -64,7 +65,7 @@ class FirebaseService with PrintLogMixin {
       if (!hot) {
         data = await dataRef.limit(count).get();
       } else {
-        data = await dataRef.limit(count).where('isHot', isEqualTo: true).get();
+        data = await dataRef.limit(count).where(where, isEqualTo: true).get();
       }
     } else {
       //load more

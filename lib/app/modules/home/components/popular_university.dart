@@ -28,8 +28,7 @@ class PopularProducts extends StatelessWidget {
                   ...List.generate(
                     builder.listUniversity.length,
                     (index) {
-                      return CustomCard(
-                          university: builder.listUniversity[index]);
+                      return CustomCard(item: builder.listUniversity[index]);
                     },
                   ),
                   SizedBox(

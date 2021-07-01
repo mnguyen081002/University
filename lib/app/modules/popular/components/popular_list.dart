@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:university_helper/app/data/models/majors.dart';
 import 'package:university_helper/app/modules/popular/controllers/popular_screen_controller.dart';
 import 'package:university_helper/app/modules/popular_detail/popular_detail_screen.dart';
-import 'package:university_helper/app/modules/search/components/card/university_card.dart';
+import 'package:university_helper/app/modules/suggest/components/card/university_card.dart';
 
 import 'major_card.dart';
 

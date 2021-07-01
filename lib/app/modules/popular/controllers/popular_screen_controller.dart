@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:university_helper/app/services/firebase_service.dart';
-
-enum Popular {
-  Major,
-  University,
-}
+import 'package:university_helper/app/utils/enum.dart';
 
 class PopularScreenController extends GetxController {
   final _list = [].obs;
@@ -41,14 +37,14 @@ class PopularScreenController extends GetxController {
     _list.addAll(await firebaseService.fetchUniversityData(orderBy: 'Hot'));
   }
 
-  Future fetchAndSetData(Popular popular) async {
+  Future fetchAndSetData(Collection popular) async {
     isLoading.value = true;
 
     switch (popular) {
-      case Popular.Major:
+      case Collection.Major:
         await fetchAndSetMajorData();
         break;
-      case Popular.University:
+      case Collection.University:
         await fetchAndSetUniversityData();
         break;
     }

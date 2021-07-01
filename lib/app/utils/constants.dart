@@ -1,5 +1,5 @@
 const double kActionSize = 100;
-const kSliderBarOptions = ['Đánh giá', 'Điểm cao', 'ĐHQG', 'Hot'];
+const kSliderBarOptions = ['Cho bạn', 'Đánh giá', 'Điểm cao', 'ĐHQG'];
 const kTabBarOptions = [
   'rate',
   'maxTuition',

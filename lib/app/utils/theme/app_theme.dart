@@ -56,13 +56,12 @@ final appThemeData = {
     ),
   ),
   AppTheme.Light: ThemeData(
-    primaryColor: primaryWhite,
-    accentColor: darkColor,
+    primaryColor: Colors.white,
+    accentColor: Colors.black,
     iconTheme: IconThemeData(
       color: Colors.grey[700],
     ),
     appBarTheme: AppBarTheme(
-      color: Colors.white,
       iconTheme: IconThemeData(
         color: Colors.black,
       ),

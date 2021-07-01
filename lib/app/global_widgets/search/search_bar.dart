@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:university_helper/app/global_widgets/search/search_delegate.dart';
+import 'package:university_helper/app/utils/custom_search.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
@@ -11,11 +12,20 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () => showSearch(
-          context: context,
-          delegate: UniversitySearchDelegate(),
+        onTap: () => showCustomSearch(
+          delegate: MySearchDelegate(),
         ),
         child: Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3),
+                spreadRadius: 1,
+                blurRadius: 4,
+                offset: Offset(1, 1), // changes position of shadow
+              ),
+            ],
+          ),
           height: 50,
           child: TextField(
             enabled: false,
@@ -29,7 +39,7 @@ class SearchBar extends StatelessWidget {
               ),
               prefixIcon: Icon(Icons.search),
               filled: true,
-              fillColor: Colors.grey[100],
+              fillColor: Colors.white,
               hintStyle: TextStyle(color: Colors.grey[600]),
               hintText: hintText,
             ),

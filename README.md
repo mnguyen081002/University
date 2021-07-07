@@ -1,5 +1,5 @@
 Ứng dụng hỗ trợ học sinh tìm trường đại học.
-<h1>Home, Detail and other screens</h1>
+<h1>Home, Detail and other screen</h1>
 <p float="left">
   <img src="https://firebasestorage.googleapis.com/v0/b/university-d001d.appspot.com/o/home.png?alt=media&token=ef38885e-f15d-4ad7-8486-415db8129f6f" width="200">
   <img src="https://firebasestorage.googleapis.com/v0/b/university-d001d.appspot.com/o/major_detail_screen.png?alt=media&token=c6140dca-255f-4f6b-be80-a1cb38d78f26" width="200">
